@@ -35,6 +35,8 @@ namespace ComShop
             using (ComShopContext comShop = new ComShopContext())
             {
                 var dbItem = comShop.Items.Find(ItemID);
+                var user = comShop.staff.Find(UserID);
+
                 tboxID.Text = dbItem.IdItem.ToString();
                 if (dbItem.Description != null)
                     tboxDesciption.Text = dbItem.Description;
@@ -45,7 +47,10 @@ namespace ComShop
                 tboxPurchasedCosts.Text = dbItem.PurchaseAmount.ToString();
                 if (dbItem.RepairCosts != null)
                     tboxRepairCosts.Text = dbItem.RepairCosts.ToString();
+                tboxPrice.Text = dbItem.Price.ToString();
 
+                if (user.AcessLevel < 1)
+                    tboxPrice.IsReadOnly = true;
             }
             
         }

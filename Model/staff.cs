@@ -44,6 +44,6 @@ namespace ComShop.Model
         /// <summary>
         /// Массив байт пароля
         /// </summary>
-        public byte[]? BytePassword { get; set; }
+        //public byte[]? BytePassword { get; set; }
     }
 }

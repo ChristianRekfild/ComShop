@@ -230,9 +230,9 @@ namespace ComShop.Model
                     .HasColumnName("acessLevel")
                     .HasComment("Уровень доступа");
 
-                entity.Property(e => e.BytePassword)
-                    .HasColumnName("bytePassword")
-                    .HasComment("Массив байт пароля");
+                //entity.Property(e => e.BytePassword)
+                //    .HasColumnName("bytePassword")
+                //    .HasComment("Массив байт пароля");
 
                 entity.Property(e => e.DateOfBirth)
                     .HasColumnName("dateOfBirth")

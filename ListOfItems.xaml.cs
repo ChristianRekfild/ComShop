@@ -26,6 +26,7 @@ namespace ComShop
         //List<Item> listOfItems;
         public ListOfItems(int staffId)
         {
+            UserID = staffId;
             getListOfItems();
             InitializeComponent();
 
