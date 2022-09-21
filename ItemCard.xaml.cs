@@ -38,8 +38,17 @@ namespace ComShop
                 tboxID.Text = dbItem.IdItem.ToString();
                 if (dbItem.Description != null)
                     tboxDesciption.Text = dbItem.Description;
+                // Даты покупки и продажи
+                tboxDateOfPurchase.Text = dbItem.DateOfPurchase.ToString();
+                if (dbItem.DateOfSale != null)
+                    tboxDateOfSale.Text = dbItem.DateOfSale.ToString();
+                tboxPurchasedCosts.Text = dbItem.PurchaseAmount.ToString();
+                if (dbItem.RepairCosts != null)
+                    tboxRepairCosts.Text = dbItem.RepairCosts.ToString();
+
             }
             
         }
+
     }
 }
