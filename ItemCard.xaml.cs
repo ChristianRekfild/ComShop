@@ -42,15 +42,41 @@ namespace ComShop
                     tboxDesciption.Text = dbItem.Description;
                 // Даты покупки и продажи
                 tboxDateOfPurchase.Text = dbItem.DateOfPurchase.ToString();
+                if (user.AcessLevel < 5)
+                    tboxDateOfPurchase.IsReadOnly = true;
+
                 if (dbItem.DateOfSale != null)
-                    tboxDateOfSale.Text = dbItem.DateOfSale.ToString();
+                    tboxDateOfSale.Text = dbItem.DateOfSale.ToString();                
+
+                // Только директор может редактировть ценник уже проданного товара
+                if (user.AcessLevel < 5)
+                {
+                    if (dbItem.DateOfSale == null)
+                    {
+                        // Запрещаем редактировать ценник стажерам
+                        if (user.AcessLevel < 1)
+                            tboxPrice.IsReadOnly = true;
+                    }
+                    else
+                    {
+                        // Если товар уже продан - никому кроме директора нельзя редактировать цену товара
+                        tboxPrice.IsReadOnly = true;
+                    }
+                }
+
                 tboxPurchasedCosts.Text = dbItem.PurchaseAmount.ToString();
                 if (dbItem.RepairCosts != null)
                     tboxRepairCosts.Text = dbItem.RepairCosts.ToString();
                 tboxPrice.Text = dbItem.Price.ToString();
 
+                // Стажёрам не даем редактировать даже серийный номер
                 if (user.AcessLevel < 1)
-                    tboxPrice.IsReadOnly = true;
+                    tboxSerialNo.IsReadOnly = true;
+
+
+                
+
+                
             }
             
         }
