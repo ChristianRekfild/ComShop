@@ -46,8 +46,9 @@ namespace ComShop
                     tboxDateOfPurchase.IsReadOnly = true;
 
                 if (dbItem.DateOfSale != null)
-                    tboxDateOfSale.Text = dbItem.DateOfSale.ToString();                
+                    tboxDateOfSale.Text = dbItem.DateOfSale.ToString();
 
+                tboxPrice.Text = dbItem.Price.ToString();
                 // Только директор может редактировть ценник уже проданного товара
                 if (user.AcessLevel < 5)
                 {
@@ -64,22 +65,50 @@ namespace ComShop
                     }
                 }
 
+                // Запрещаем редактировать стоимость покупки всем кроме заместителя директора
                 tboxPurchasedCosts.Text = dbItem.PurchaseAmount.ToString();
-                if (dbItem.RepairCosts != null)
+                if (user.AcessLevel < 4)
+                    tboxPurchasedCosts.IsReadOnly = true;
+
+                // Запрещаем редактировать стоимость ремонта всем кроме зам директора
+                if (dbItem.RepairCosts != null)                
                     tboxRepairCosts.Text = dbItem.RepairCosts.ToString();
-                tboxPrice.Text = dbItem.Price.ToString();
+                if (user.AcessLevel < 4)
+                    tboxRepairCosts.IsReadOnly = true;
+
+                    
 
                 // Стажёрам не даем редактировать даже серийный номер
                 if (user.AcessLevel < 1)
                     tboxSerialNo.IsReadOnly = true;
 
+                // Запрещаем редактировать серийный номер всем кроме зам директора
+                if (user.AcessLevel < 4)
+                    tboxSerialNo.IsReadOnly = true;
 
-                
+                // В ремонте
+                if (dbItem.UnderRepair)
+                    chboxUnderRepair.Content = true;
+                else
+                    chboxUnderRepair.Content = false;
+                if (user.AcessLevel < 4)
+                    chboxUnderRepair.Focusable = false;
 
-                
+
             }
-            
+
         }
 
+        private void chboxUnderRepair_Checked(object sender, RoutedEventArgs e)
+        {
+            using (ComShopContext comShop = new ComShopContext())
+            {
+                var user = comShop.staff.Find(UserID);
+                if (user.AcessLevel >= 4)
+                {
+                    if (chboxUnderRepair.Content == true)
+                }
+            }
+        }
     }
 }
