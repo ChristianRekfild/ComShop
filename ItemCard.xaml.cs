@@ -106,7 +106,13 @@ namespace ComShop
                 var user = comShop.staff.Find(UserID);
                 if (user.AcessLevel >= 4)
                 {
-                    if (chboxUnderRepair.Content == true)
+                    if (chboxUnderRepair.IsChecked.Value == true)
+                    {
+                        chboxUnderRepair.Content = false;
+                    } else
+                    {
+                        chboxUnderRepair.Content = true;
+                    }
                 }
             }
         }

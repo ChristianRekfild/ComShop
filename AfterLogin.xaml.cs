@@ -64,9 +64,11 @@ namespace ComShop
 
         }
         // Сотрудники - изменение уровня доступа
-        private void Button_Click_5(object sender, RoutedEventArgs e)
+        private void btn_OpenStaffList(object sender, RoutedEventArgs e)
         {
-
+            StaffList staffList = new StaffList(UserID);
+            staffList.Show();
+            this.Close();
         }
         // Найти клиента
         private void Button_Click_6(object sender, RoutedEventArgs e)
@@ -79,6 +81,11 @@ namespace ComShop
             ListOfItems listOfItems = new ListOfItems(UserID);
             listOfItems.Show();            
             this.Close();
+        }
+
+        private void btn_addRepairMaster(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

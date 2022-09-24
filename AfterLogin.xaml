@@ -12,8 +12,8 @@
             <Button Content="Добавление клиента" HorizontalAlignment="Center" Margin="0,62,0,0" VerticalAlignment="Top" Width="273" Click="Button_Click_2"/>
             <Button Content="Приём из ремонта" HorizontalAlignment="Center" Margin="0,87,0,0" VerticalAlignment="Top" Width="273" Click="Button_Click_3"/>
             <Button Content="Добавление новой категории" HorizontalAlignment="Center" Margin="0,112,0,0" VerticalAlignment="Top" Width="273" Click="Button_Click_4"/>
-            <Button Content="Добавление нового мастера" HorizontalAlignment="Center" Margin="0,137,0,0" VerticalAlignment="Top" Width="273" Click="Button_Click_5"/>
-            <Button Content="Сотрудники (изменение ур. доступа)" HorizontalAlignment="Center" Margin="0,162,0,0" VerticalAlignment="Top" Width="273" Click="Button_Click_5"/>
+            <Button Content="Добавление нового мастера" HorizontalAlignment="Center" Margin="0,137,0,0" VerticalAlignment="Top" Width="273" Click="btn_addRepairMaster"/>
+            <Button Content="Сотрудники" HorizontalAlignment="Center" Margin="0,162,0,0" VerticalAlignment="Top" Width="273" Click="btn_OpenStaffList"/>
             <Button Content="Список товаров" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="273" Click="Button_OpenListItems"/>
         </Grid>
         <TextBlock HorizontalAlignment="Left" Margin="700,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289" TextAlignment="Center" FontSize="18" FontWeight="Bold"><Run Language="ru-ru" Text="Поиск товара" /></TextBlock>
