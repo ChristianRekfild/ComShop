@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComShop"
         mc:Ignorable="d"
-        Title="StaffCard" Height="450" Width="800">
+        Title="Сотрудник" Height="450" Width="800">
     <Grid>
-        
+        <Label Content="ID" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="60"/>
+        <TextBlock Name="tbox_staffID" HorizontalAlignment="Left" Margin="75,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="60"/>
+        <Label Content="Фамилия" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top"/>
+        <Label Content="Имя" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top" Width="60"/>
+        <Label Content="Отчество" HorizontalAlignment="Left" Margin="10,108,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="tbox_familyName" HorizontalAlignment="Left" Margin="75,51,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="60"/>
+        <TextBlock x:Name="tbox_name" HorizontalAlignment="Left" Margin="75,81,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="60"/>
+        <TextBlock x:Name="tbox_patronymic" HorizontalAlignment="Left" Margin="75,113,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="60"/>
+        <Label Content="Уровень доступа" HorizontalAlignment="Left" Margin="176,13,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="tbox_acessLevel" HorizontalAlignment="Left" Margin="294,20,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="60"/>
+        <Label Content="Дата рождения" HorizontalAlignment="Left" Margin="10,182,0,0" VerticalAlignment="Top"/>
+        <Label Content="Паспорт" HorizontalAlignment="Left" Margin="10,213,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>

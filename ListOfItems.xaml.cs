@@ -71,5 +71,13 @@ namespace ComShop
         {
 
         }
+
+        // В главное меню
+        private void Btn_MainMenu(object sender, RoutedEventArgs e)
+        {
+            AfterLogin afterLogin = new AfterLogin(UserID);
+            afterLogin.Show();
+            this.Close();
+        }
     }
 }

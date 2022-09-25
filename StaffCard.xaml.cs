@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Printing;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,9 +20,21 @@ namespace ComShop
     /// </summary>
     public partial class StaffCard : Window
     {
-        public StaffCard()
+        int UserID;
+        public StaffCard(int staffID)
         {
+            UserID = staffID;
             InitializeComponent();
+        }
+
+        private void GetStaffInfo()
+        {
+
+        }
+
+        private void SetSettingByAcessLevel()
+        {
+
         }
     }
 }

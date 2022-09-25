@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComShop"
         mc:Ignorable="d"
-        Title="ListOfItems" Height="720" Width="1280">
+        Title="Товары" Height="720" Width="1280">
     <Grid>
-        <Label Content="Товары" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="253"/>
+        <Label Content="Список товаров" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="253"/>
 
         <ListView Name="listOfItemsblah" Height="599" VerticalAlignment="Top" Margin="0,31,0,0" ItemsSource="{Binding}">
             <ListView.View>
@@ -28,6 +28,7 @@
             </ListView.View>
         </ListView>
 
-        <Button Content="Открыть" Height="43" VerticalAlignment="Top" Margin="831,630,160,0" Click="Button_Click"/>
+        <Button Content="Открыть" Height="43" VerticalAlignment="Top" Margin="981,635,10,0" Click="Button_Click"/>
+        <Button Content="Главное меню" Height="43" VerticalAlignment="Top" Margin="10,635,981,0" Click="Btn_MainMenu"/>
     </Grid>
 </Window>

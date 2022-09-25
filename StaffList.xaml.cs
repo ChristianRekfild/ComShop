@@ -40,18 +40,17 @@ namespace ComShop
 
         private void btn_openStaffCard(object sender, RoutedEventArgs e)
         {
-
+            StaffCard staffCard = new StaffCard();
+            staffCard.Show();
+            this.Close();
         }
 
-        private void HideData()
+        // В главное меню
+        private void btn_MainMenu(object sender, RoutedEventArgs e)
         {
-            using (ComShopContext context = new ComShopContext())
-            {
-                var user = context.staff.Find(UserID);
-                // пусть пасспорт смотрят только управляющий мегазинов
-                if (user.AcessLevel < 4)
-                    colPassport.Width = 0.0;
-            }
+            AfterLogin afterLogin = new AfterLogin(UserID);
+            afterLogin.Show();
+            this.Close();
         }
     }
    

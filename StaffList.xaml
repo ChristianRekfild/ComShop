@@ -7,27 +7,22 @@
         mc:Ignorable="d"
         Title="Персонал" Height="720" Width="1280">
     <Grid>
-        <Label Content="Товары" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="253"/>
+        <Label Content="Список сотрудников" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="253"/>
 
         <ListView Name="listOfItemsblah" Height="599" VerticalAlignment="Top" Margin="0,31,0,0" ItemsSource="{Binding}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Path=IdStaff}"></GridViewColumn>
-                    <GridViewColumn Header="Login" DisplayMemberBinding="{Binding Path=Login}"></GridViewColumn>
-                    <GridViewColumn Header="Уровень доступа" DisplayMemberBinding="{Binding Path=AcessLevel}"></GridViewColumn>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Path=IdStaff}" Width="50"></GridViewColumn>
+                    <GridViewColumn Header="Login" DisplayMemberBinding="{Binding Path=Login}" Width="200"></GridViewColumn>
+                    <GridViewColumn Header="Уровень доступа" DisplayMemberBinding="{Binding Path=AcessLevel}" Width="150"></GridViewColumn>
 
-                    <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding Path=FamilyName}"></GridViewColumn>
-                    <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Path=Name}"></GridViewColumn>
-
-                    <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding Path=Patronymic}"></GridViewColumn>
-
-                    <GridViewColumn Header="Дата рождения" DisplayMemberBinding="{Binding Path=DateOfBirth}"></GridViewColumn>
-                    <GridViewColumn x:Name="colPassport" Header="Пасспорт" DisplayMemberBinding="{Binding Path=Passport}"></GridViewColumn>
-
+                    <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding Path=FamilyName}" Width="300"></GridViewColumn>
+                    <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Path=Name}" Width="300"></GridViewColumn>
+                    <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding Path=Patronymic}" Width="275"></GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
 
-        <Button Content="Открыть" Height="43" VerticalAlignment="Top" Margin="831,630,160,0" Click="btn_openStaffCard"/>
+        <Button Content="Гланвое меню" Height="43" VerticalAlignment="Top" Margin="10,635,981,0" Click="btn_MainMenu"/>
     </Grid>
 </Window>
