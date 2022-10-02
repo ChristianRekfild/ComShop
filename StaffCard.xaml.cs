@@ -69,9 +69,33 @@ namespace ComShop
                     lab_passport.Visibility = Visibility.Collapsed;
                     tbox_login.Visibility = Visibility.Collapsed;
                     lab_login.Visibility = Visibility.Hidden;
+                    //btn_save.Visibility = Visibility.Hidden;
                 }
             }
 
         }
+
+        // Сохранить
+        // Теперь у меня пропадал cproj файл, и я громко ругался, опять восстанавливая проект...
+        private void btn_ClickToSave(object sender, RoutedEventArgs e)
+        {
+            using (ComShopContext comShop = new ComShopContext())
+            {
+                // Сотрудник, чью карточку открыли
+                var staff = comShop.staff.Find(EmployeeIdToOpen);
+
+                staff.Name = tbox_name.Text;
+                staff.FamilyName = tbox_familyName.Text;
+                staff.Patronymic = tbox_familyName.Text;
+                staff.DateOfBirth = DateOnly.Parse(tbox_dateOfBirth.Text);
+                staff.Passport = tbox_passport.Text;
+                staff.Login = tbox_login.Text;
+                staff.AcessLevel = int.Parse(tbox_acessLevel.Text);
+
+                comShop.SaveChanges();
+            }            
+
+        }
+
     }
 }

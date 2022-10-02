@@ -12,17 +12,20 @@
         <Label Content="Фамилия" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top"/>
         <Label Content="Имя" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top" Width="60"/>
         <Label Content="Отчество" HorizontalAlignment="Left" Margin="10,108,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="tbox_familyName" HorizontalAlignment="Left" Margin="75,51,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="107"/>
-        <TextBlock x:Name="tbox_name" HorizontalAlignment="Left" Margin="75,81,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="107"/>
-        <TextBlock x:Name="tbox_login" HorizontalAlignment="Left" Margin="75,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" Width="60"/>
+        <TextBox x:Name="tbox_familyName" HorizontalAlignment="Left" Margin="75,50,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbox_name" HorizontalAlignment="Left" Margin="75,80,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbox_patronymic" HorizontalAlignment="Left" Margin="76,112,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbox_dateOfBirth" HorizontalAlignment="Left" Margin="120,146,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbox_passport" HorizontalAlignment="Left" Margin="120,177,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbox_login" HorizontalAlignment="Left" Margin="120,0,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="120"/>
         <Label Content="Уровень доступа" HorizontalAlignment="Left" Margin="177,10,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="tbox_acessLevel" HorizontalAlignment="Left" Margin="296,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="60"/>
         <Label x:Name="lab_dateOfBirth" Content="Дата рождения" HorizontalAlignment="Left" Margin="10,142,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lab_passport" Content="Паспорт" HorizontalAlignment="Left" Margin="10,173,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="tbox_dateOfBirth" HorizontalAlignment="Left" Margin="125,147,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="115"/>
-        <TextBlock x:Name="tbox_passport" HorizontalAlignment="Left" Margin="125,178,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="115"/>
+
         <Label x:Name="lab_login" Content="Логин" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
-        <TextBlock x:Name="tbox_patronymic" HorizontalAlignment="Left" Margin="76,113,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="106"/>
+        <Button x:Name="btn_save" Content="Сохранить" HorizontalAlignment="Left" Margin="630,347,0,0" VerticalAlignment="Top" Width="160" Height="30" Click="btn_ClickToSave"/>
+
 
     </Grid>
 </Window>
