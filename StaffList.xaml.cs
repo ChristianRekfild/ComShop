@@ -40,9 +40,23 @@ namespace ComShop
 
         private void btn_openStaffCard(object sender, RoutedEventArgs e)
         {
-            StaffCard staffCard = new StaffCard();
-            staffCard.Show();
-            this.Close();
+
+            staff? staff = staffList.SelectedItem as staff;
+            if (staff != null)
+            {
+                StaffCard staffCard = new StaffCard(UserID, staff.IdStaff);
+                staffCard.Show();
+                this.Close();
+
+                //ListOfItems listOfItems = new ListOfItems(UserID);
+                //listOfItems.Show();
+                //this.Close();
+            }
+
+
+            //StaffCard staffCard = new StaffCard(UserID);
+            //staffCard.Show();
+            //this.Close();
         }
 
         // В главное меню

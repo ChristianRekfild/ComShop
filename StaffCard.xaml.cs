@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ComShop.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Printing;
@@ -21,20 +22,60 @@ namespace ComShop
     public partial class StaffCard : Window
     {
         int UserID;
-        public StaffCard(int staffID)
+        int EmployeeIdToOpen;
+        public StaffCard(int staffID, int staffIDToOpen)
         {
             UserID = staffID;
+            EmployeeIdToOpen = staffIDToOpen;
             InitializeComponent();
+            GetStaffInfo(UserID);
         }
 
-        private void GetStaffInfo()
+        private void GetStaffInfo(int UserID)
         {
-
+            using (ComShopContext comShop = new ComShopContext())
+            {
+                // пользователь, который открыл карточку сотрудника
+                var user = comShop.staff.Find(UserID);
+                // Сотрудник, чью карточку открыли
+                var staff = comShop.staff.Find(EmployeeIdToOpen);
+                
+                tbox_staffID.Text = staff.IdStaff.ToString();
+                tbox_name.Text = staff.Name;
+                tbox_familyName.Text = staff.FamilyName;
+                tbox_patronymic.Text = staff.Patronymic;
+                tbox_dateOfBirth.Text = staff.DateOfBirth.ToString();
+                tbox_passport.Text = staff.Passport;
+                tbox_login.Text = staff.Login;
+                tbox_acessLevel.Text = staff.AcessLevel.ToString();
+            }
         }
 
-        private void SetSettingByAcessLevel()
+        private void SetSettingByAcessLevel(int UserID)
         {
+            using (ComShopContext comShop = new ComShopContext())
+            {
+                // пользователь, который открыл карточку сотрудника
+                var user = comShop.staff.Find(UserID);
 
+                // Если сотрудник меньше управляющего магазином
+                if (user.AcessLevel < 4)
+                {
+
+                }
+
+
+                /*
+                tbox_staffID.Text = staff.IdStaff.ToString();
+                tbox_name.Text = staff.Name;
+                tbox_familyName.Text = staff.FamilyName;
+                tbox_patronymic.Text = staff.Patronymic;
+                tbox_dateOfBirth.Text = staff.DateOfBirth.ToString();
+                tbox_passport.Text = staff.Passport;
+                tbox_login.Text = staff.Login;
+                tbox_acessLevel.Text = staff.AcessLevel.ToString();
+                */
+            }
         }
     }
 }

@@ -9,7 +9,7 @@
     <Grid>
         <Label Content="Список сотрудников" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="253"/>
 
-        <ListView Name="listOfItemsblah" Height="599" VerticalAlignment="Top" Margin="0,31,0,0" ItemsSource="{Binding}">
+        <ListView Name="staffList" Height="599" VerticalAlignment="Top" Margin="0,31,0,0" ItemsSource="{Binding}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Path=IdStaff}" Width="50"></GridViewColumn>
