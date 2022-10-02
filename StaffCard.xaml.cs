@@ -29,6 +29,7 @@ namespace ComShop
             EmployeeIdToOpen = staffIDToOpen;
             InitializeComponent();
             GetStaffInfo(UserID);
+            SetSettingByAcessLevel(UserID);
         }
 
         private void GetStaffInfo(int UserID)
@@ -61,21 +62,16 @@ namespace ComShop
                 // Если сотрудник меньше управляющего магазином
                 if (user.AcessLevel < 4)
                 {
-
+                    // Скрываем поля, которые не каждый должен видеть. Пусть даже не знаеь о них!
+                    tbox_dateOfBirth.Visibility = Visibility.Collapsed;
+                    tbox_passport.Visibility = Visibility.Collapsed;
+                    lab_dateOfBirth.Visibility = Visibility.Collapsed;
+                    lab_passport.Visibility = Visibility.Collapsed;
+                    tbox_login.Visibility = Visibility.Collapsed;
+                    lab_login.Visibility = Visibility.Hidden;
                 }
-
-
-                /*
-                tbox_staffID.Text = staff.IdStaff.ToString();
-                tbox_name.Text = staff.Name;
-                tbox_familyName.Text = staff.FamilyName;
-                tbox_patronymic.Text = staff.Patronymic;
-                tbox_dateOfBirth.Text = staff.DateOfBirth.ToString();
-                tbox_passport.Text = staff.Passport;
-                tbox_login.Text = staff.Login;
-                tbox_acessLevel.Text = staff.AcessLevel.ToString();
-                */
             }
+
         }
     }
 }

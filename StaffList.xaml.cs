@@ -47,16 +47,8 @@ namespace ComShop
                 StaffCard staffCard = new StaffCard(UserID, staff.IdStaff);
                 staffCard.Show();
                 this.Close();
-
-                //ListOfItems listOfItems = new ListOfItems(UserID);
-                //listOfItems.Show();
-                //this.Close();
             }
 
-
-            //StaffCard staffCard = new StaffCard(UserID);
-            //staffCard.Show();
-            //this.Close();
         }
 
         // В главное меню

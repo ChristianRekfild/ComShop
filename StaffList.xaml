@@ -18,11 +18,12 @@
 
                     <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding Path=FamilyName}" Width="300"></GridViewColumn>
                     <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Path=Name}" Width="300"></GridViewColumn>
-                    <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding Path=Patronymic}" Width="275"></GridViewColumn>
+                    <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding Path=Patronymic}" Width="250"></GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
 
-        <Button Content="Гланвое меню" Height="43" VerticalAlignment="Top" Margin="10,635,981,0" Click="btn_MainMenu"/>
+        <Button Content="Главное меню" Height="43" VerticalAlignment="Top" Margin="10,635,981,0" Click="btn_MainMenu"/>
+        <Button Content="Открыть карточку" Height="43" VerticalAlignment="Top" Margin="981,635,10,0" Click="btn_openStaffCard"/>
     </Grid>
 </Window>
