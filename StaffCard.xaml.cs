@@ -70,6 +70,12 @@ namespace ComShop
                     tbox_login.Visibility = Visibility.Collapsed;
                     lab_login.Visibility = Visibility.Hidden;
                     //btn_save.Visibility = Visibility.Hidden;
+
+                    // На остальные поля нужно ставить органичение - только для чтения. Иначе наворотят дел
+                    tbox_name.IsReadOnly = true;
+                    tbox_familyName.IsReadOnly = true;
+                    tbox_patronymic.IsReadOnly = true;
+                    tbox_acessLevel.IsReadOnly = true;
                 }
             }
 

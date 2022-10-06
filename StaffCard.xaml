@@ -19,12 +19,12 @@
         <TextBox x:Name="tbox_passport" HorizontalAlignment="Left" Margin="120,177,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbox_login" HorizontalAlignment="Left" Margin="120,0,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="120"/>
         <Label Content="Уровень доступа" HorizontalAlignment="Left" Margin="177,10,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="tbox_acessLevel" HorizontalAlignment="Left" Margin="296,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="60"/>
         <Label x:Name="lab_dateOfBirth" Content="Дата рождения" HorizontalAlignment="Left" Margin="10,142,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lab_passport" Content="Паспорт" HorizontalAlignment="Left" Margin="10,173,0,0" VerticalAlignment="Top"/>
 
         <Label x:Name="lab_login" Content="Логин" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
         <Button x:Name="btn_save" Content="Сохранить" HorizontalAlignment="Left" Margin="630,347,0,0" VerticalAlignment="Top" Width="160" Height="30" Click="btn_ClickToSave"/>
+        <TextBox x:Name="tbox_acessLevel" HorizontalAlignment="Left" Margin="285,18,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="65"/>
 
 
     </Grid>
