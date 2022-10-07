@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComShop"
         mc:Ignorable="d"
-        Title="AfterLogin" Height="720" Width="1280">
+        Title="Главное меню" Height="720" Width="1280">
     <Grid>
         <Grid HorizontalAlignment="Left" Height="684" Margin="0,4,0,0" VerticalAlignment="Top" Width="293">
-            <Button Content="Скупка товара" HorizontalAlignment="Center" Margin="0,37,0,0" VerticalAlignment="Top" Width="273" Click="Button_Click_1"/>
-            <Button Content="Добавление клиента" HorizontalAlignment="Center" Margin="0,62,0,0" VerticalAlignment="Top" Width="273" Click="Button_Click_2"/>
+            <Button Content="Купить товар" HorizontalAlignment="Center" Margin="0,37,0,0" VerticalAlignment="Top" Width="273" Click="buyItem"/>
+            <Button Content="Список клиентов" HorizontalAlignment="Center" Margin="0,62,0,0" VerticalAlignment="Top" Width="273" Click="btn_addClient"/>
             <Button Content="Приём из ремонта" HorizontalAlignment="Center" Margin="0,87,0,0" VerticalAlignment="Top" Width="273" Click="Button_Click_3"/>
             <Button Content="Добавление новой категории" HorizontalAlignment="Center" Margin="0,112,0,0" VerticalAlignment="Top" Width="273" Click="Button_Click_4"/>
             <Button Content="Добавление нового мастера" HorizontalAlignment="Center" Margin="0,137,0,0" VerticalAlignment="Top" Width="273" Click="btn_addRepairMaster"/>

@@ -43,16 +43,23 @@ namespace ComShop
         {
 
         }
+
         // Скупка товара
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void buyItem(object sender, RoutedEventArgs e)
         {
-
+            BuyItem buyItem = new BuyItem(UserID);
+            buyItem.Show();
+            this.Close();
         }
+
         // Добавление клиента
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void btn_addClient(object sender, RoutedEventArgs e)
         {
-
+            ListOfClients listOfClients = new ListOfClients(UserID);
+            listOfClients.Show();
+            this.Close();
         }
+
         // Приём из ремонта
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
@@ -87,5 +94,7 @@ namespace ComShop
         {
 
         }
+
+        
     }
 }

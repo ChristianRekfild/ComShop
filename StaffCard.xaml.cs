@@ -69,7 +69,7 @@ namespace ComShop
                     lab_passport.Visibility = Visibility.Collapsed;
                     tbox_login.Visibility = Visibility.Collapsed;
                     lab_login.Visibility = Visibility.Hidden;
-                    //btn_save.Visibility = Visibility.Hidden;
+                    btn_save.Visibility = Visibility.Hidden;
 
                     // На остальные поля нужно ставить органичение - только для чтения. Иначе наворотят дел
                     tbox_name.IsReadOnly = true;
@@ -103,5 +103,11 @@ namespace ComShop
 
         }
 
+        private void btn_mainMenu(object sender, RoutedEventArgs e)
+        {
+            AfterLogin afterLogin = new AfterLogin(UserID);
+            afterLogin.Show();
+            this.Close();
+        }
     }
 }

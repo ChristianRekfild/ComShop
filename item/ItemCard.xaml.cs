@@ -1,4 +1,5 @@
-﻿using ComShop.Model;
+﻿using ComShop.item;
+using ComShop.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -89,6 +90,13 @@ namespace ComShop
                 // Никто не достоин редактировать ID товара. Только высшие администраторы из легенд!
                 tboxID.IsReadOnly = true;
 
+                // запрещаем продажу и отправку на ремонт для стажёров
+                if (user.AcessLevel < 1)
+                {
+                    btn_sellItem.Visibility = Visibility.Collapsed;
+                    btn_repair.Visibility = Visibility.Collapsed;
+                }
+
                 // Только директор может редактировть ценник уже проданного товара
                 if (user.AcessLevel < 5)
                 {
@@ -156,6 +164,29 @@ namespace ComShop
             AfterLogin afterLogin = new AfterLogin(UserID);
             afterLogin.Show();
             this.Close();
+        }
+
+        private void sellItem(object sender, RoutedEventArgs e)
+        {
+            using (ComShopContext comShop = new ComShopContext())
+            {
+                var item = comShop.Items.Find(ItemID);
+                if (item.UnderRepair)
+                {
+                    MessageBox.Show("Нельзя продать товар, который находится в ремонте!");
+                    return;
+                }
+            }
+
+            SaleOfItem sale = new SaleOfItem(UserID, ItemID);
+            sale.Show();
+            this.Close();
+        }
+
+        // Отправить на ремонт
+        private void sendForRepair(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

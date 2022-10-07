@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComShop"
         mc:Ignorable="d"
-        Title="Сотрудник" Height="450" Width="800">
+        Title="Сотрудник" Height="720" Width="1280">
     <Grid>
         <Label Content="ID" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="60"/>
         <TextBlock Name="tbox_staffID" HorizontalAlignment="Left" Margin="75,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="60"/>
@@ -17,14 +17,15 @@
         <TextBox x:Name="tbox_patronymic" HorizontalAlignment="Left" Margin="76,112,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbox_dateOfBirth" HorizontalAlignment="Left" Margin="120,146,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbox_passport" HorizontalAlignment="Left" Margin="120,177,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="tbox_login" HorizontalAlignment="Left" Margin="120,0,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="120"/>
+        <TextBox x:Name="tbox_login" HorizontalAlignment="Left" Margin="120,208,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <Label Content="Уровень доступа" HorizontalAlignment="Left" Margin="177,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lab_dateOfBirth" Content="Дата рождения" HorizontalAlignment="Left" Margin="10,142,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lab_passport" Content="Паспорт" HorizontalAlignment="Left" Margin="10,173,0,0" VerticalAlignment="Top"/>
 
-        <Label x:Name="lab_login" Content="Логин" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
-        <Button x:Name="btn_save" Content="Сохранить" HorizontalAlignment="Left" Margin="630,347,0,0" VerticalAlignment="Top" Width="160" Height="30" Click="btn_ClickToSave"/>
+        <Label x:Name="lab_login" Content="Логин" HorizontalAlignment="Left" Margin="10,204,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btn_save" Content="Сохранить" HorizontalAlignment="Left" Margin="1010,644,0,0" VerticalAlignment="Top" Width="260" Height="45" Click="btn_ClickToSave"/>
         <TextBox x:Name="tbox_acessLevel" HorizontalAlignment="Left" Margin="285,18,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="65"/>
+        <Button  Content="Главное меню" HorizontalAlignment="Left" Margin="10,644,0,0" VerticalAlignment="Top" Width="288" Height="45" Click="btn_mainMenu"/>
 
 
     </Grid>
