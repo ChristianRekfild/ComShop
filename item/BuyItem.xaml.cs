@@ -92,7 +92,7 @@ namespace ComShop
         private void buyItem(object sender, RoutedEventArgs e)
         {
 
-            // TODO добавить блок проверок
+            // TODO добавить блок проверок 
 
             using (ComShopContext comshop = new ComShopContext())
             {
