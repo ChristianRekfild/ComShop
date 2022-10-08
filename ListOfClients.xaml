@@ -9,7 +9,7 @@
     <Grid>
         <Label Content="Список сотрудников" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="253"/>
 
-        <ListView Name="staffList" Height="599" VerticalAlignment="Top" Margin="0,31,0,0" ItemsSource="{Binding}">
+        <ListView Name="clientList" Height="599" VerticalAlignment="Top" Margin="0,31,0,0" ItemsSource="{Binding}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Path=IdClient}" Width="50"></GridViewColumn>
@@ -21,7 +21,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Главное меню" HorizontalAlignment="Left" Margin="10,649,0,0" VerticalAlignment="Top" Height="45" Width="300"  Click="goToMainMenu"/>
-        <Button x:Name="btn_addClient" Content="Добавить клиента" HorizontalAlignment="Left" Margin="970,649,0,10" Width="300"  Click="addClient"/>
+        <Button Content="Главное меню" HorizontalAlignment="Left" Margin="10,635,0,0" VerticalAlignment="Top" Height="45" Width="300"  Click="goToMainMenu"/>
+        <Button x:Name="btn_addClient" Content="Добавить клиента" HorizontalAlignment="Center" Margin="0,635,0,24" Width="300"  Click="addClient"/>
+        <Button x:Name="btn_addClient_Copy" Content="Выбрать клиента" HorizontalAlignment="Left" Margin="970,635,0,24" Width="300"  Click="selectClient"/>
     </Grid>
 </Window>

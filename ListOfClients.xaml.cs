@@ -21,9 +21,13 @@ namespace ComShop
     public partial class ListOfClients : Window
     {
         private int UserID;
-        public ListOfClients(int userID)
+        int ClientID;
+        int CategoryID;
+        public ListOfClients(int userID, int categoryID, int clientID)
         {
             UserID = userID;
+            ClientID = clientID;
+            CategoryID = categoryID;
             GetClientList();
             InitializeComponent();
             SetSettingsByAcessLevel(UserID);
@@ -33,7 +37,7 @@ namespace ComShop
         {
             using (ComShopContext context = new ComShopContext())
             {
-                this.DataContext = context.staff.ToList();
+                this.DataContext = context.Clients.ToList();
             }
         }
 
@@ -61,8 +65,27 @@ namespace ComShop
         // Добавление клиента
         private void addClient(object sender, RoutedEventArgs e)
         {
-            AddClient addClient = new AddClient(UserID);
-            addClient.Show();
+            // Под чем я был, когда написл эту тупость?!
+
+            //AddClient addClient = new AddClient(UserID);
+            //addClient.Show();
+            //this.Close();
+        }
+
+        // Выбираем клиента для покупки
+        private void selectClient(object sender, RoutedEventArgs e)
+        {
+            //Item? item = listOfItemsblah.SelectedItem as Item;
+            Client? client = clientList.SelectedItem as Client;
+
+            if (client == null)
+            {
+                MessageBox.Show("Не выбран клиент");
+                return;
+            }
+
+            BuyItem buyItem = new BuyItem(UserID, CategoryID, client.IdClient);
+            buyItem.Show();
             this.Close();
         }
     }

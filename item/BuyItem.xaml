@@ -12,13 +12,22 @@
         <Label Content="Категория" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="108"/>
         <Label Content="Продавец" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="108"/>
 
-        <Label Content="Описание" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="108"/>
-        <Label Content="Серийный номер" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Width="108"/>
-        <Label Content="Цена покупки" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Width="108"/>
+        <Label Content="Описание" HorizontalAlignment="Left" Margin="10,259,0,0" VerticalAlignment="Top" Width="108"/>
+        <Label Content="Серийный номер" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top" Width="108"/>
+        <Label Content="Цена покупки" HorizontalAlignment="Left" Margin="10,321,0,0" VerticalAlignment="Top" Width="108"/>
 
 
         <Button Content="Главное меню" HorizontalAlignment="Left" Margin="10,649,0,0" VerticalAlignment="Top" Height="45" Width="300" Click="goToMainMenu"/>
-        <Label Content="Цена продажи" HorizontalAlignment="Left" Margin="10,196,0,0" VerticalAlignment="Top" Width="108"/>
+        <Label Content="Цена продажи" HorizontalAlignment="Left" Margin="10,352,0,0" VerticalAlignment="Top" Width="108"/>
+        <TextBox x:Name="tbox_categoty" HorizontalAlignment="Left" Margin="262,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="660"/>
+        <TextBox x:Name="tbox_client" HorizontalAlignment="Left" Margin="262,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="660" Height="195"/>
+        <Button Content="Выбрать категорию" HorizontalAlignment="Left" Margin="114,13,0,0" VerticalAlignment="Top" Width="116" Click="selectCategory"/>
+        <Button Content="Выбрать продавца" HorizontalAlignment="Left" Margin="114,44,0,0" VerticalAlignment="Top" Width="116" Click="selectSeller"/>
+        <TextBox x:Name="tbox_description" HorizontalAlignment="Left" Margin="160,263,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365"/>
+        <TextBox x:Name="tbox_serial" HorizontalAlignment="Left" Margin="160,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365"/>
+        <TextBox x:Name="tbox_purchPrice" HorizontalAlignment="Left" Margin="160,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365"/>
+        <TextBox x:Name="tbox_price" HorizontalAlignment="Left" Margin="160,356,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365"/>
+        <Button Content="Купить" HorizontalAlignment="Left" Margin="970,644,0,0" VerticalAlignment="Top" Height="45" Width="300" Click="buyItem"/>
 
     </Grid>
 </Window>
