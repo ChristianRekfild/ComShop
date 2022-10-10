@@ -4,11 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComShop.item"
+        WindowState="Maximized"
         mc:Ignorable="d"
         Title="Продажа товара" Height="720" Width="1280">
     <Grid>
         <Label Content="Введите сумму продажи и нажмите &quot;Продать&quot;" VerticalAlignment="Top" Height="86" Width="652" FontSize="30" HorizontalAlignment="Center" Margin="0,100,0,0"/>
-        <TextBox x:Name="tbox_price" HorizontalAlignment="Center" Margin="0,286,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="652" Height="80" FontSize="36" TextAlignment="Center"/>
+        <TextBox x:Name="tbox_price" HorizontalAlignment="Center" Margin="0,286,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="652" Height="80" FontSize="36" TextAlignment="Center"/>
         <Button Content="Продать" HorizontalAlignment="Center" VerticalAlignment="Top" Height="80" Width="652" FontSize="40" Margin="0,389,0,0" Click="sellItem"/>
 
     </Grid>
