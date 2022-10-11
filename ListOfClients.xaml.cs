@@ -67,9 +67,9 @@ namespace ComShop
         {
             // Под чем я был, когда написл эту тупость?!
 
-            //AddClient addClient = new AddClient(UserID);
-            //addClient.Show();
-            //this.Close();
+            AddClient addClient = new AddClient(UserID);
+            addClient.Show();
+            this.Close();
         }
 
         // Выбираем клиента для покупки

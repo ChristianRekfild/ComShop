@@ -12,7 +12,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Linq;
 using ComShop.Model;
 
 namespace ComShop
@@ -22,27 +21,50 @@ namespace ComShop
     /// </summary>
     public partial class ListOfItems : Window
     {
-        int UserID;
-        //List<Item> listOfItems;
-        public ListOfItems(int staffId)
+        private int UserID;
+        private string DescriptionContains;
+        private string SerialContains;
+        private bool? InStock;
+        private List<Item> ItemList;
+        int NumberOfAPages;
+        int CurrPage;
+        public ListOfItems(int staffId, string descContains, string serialContains, bool? inStock)
         {
             UserID = staffId;
+            DescriptionContains = descContains;
+            SerialContains = serialContains;
+            InStock = inStock;
+
             getListOfItems();
             InitializeComponent();
+            tbox_page.IsReadOnly = true;
+            tbox_page.Text = CurrPage.ToString();
 
-            // Данные читает, уже неплохо
-            //foreach (var item in listOfItems)
-            //{
-            //    MessageBox.Show(item.Description);
-            //}
+
         }
 
         public void getListOfItems()
         {
+
             using (ComShopContext context = new ComShopContext())
             {
                 // listOfItems = context.Items.ToList();
-                this.DataContext = context.Items.ToList();
+                //this.DataContext = context.Items.ToList();
+
+                ItemList = context.Items.Where(x => x.Description.Contains(DescriptionContains)).Where(x => x.SerialNumber.Contains(SerialContains)).OrderBy(x => x.IdItem).ToList();
+                if (InStock == true)
+                    ItemList = ItemList.Where(x => x.DateOfSale.Equals(null)).ToList();
+
+                //this.DataContext = ItemList;
+
+                this.DataContext = ItemList.Skip(0).Take(5);
+
+                CurrPage = 1;
+                NumberOfAPages = ItemList.Count / 5;
+                if (ItemList.Count % 5 != 0)
+                    NumberOfAPages++;
+
+
             }
         }
 
@@ -78,6 +100,27 @@ namespace ComShop
             AfterLogin afterLogin = new AfterLogin(UserID);
             afterLogin.Show();
             this.Close();
+        }
+
+
+        private void getPrev(object sender, RoutedEventArgs e)
+        {
+            if (CurrPage > 1)
+            {
+                this.DataContext = ItemList.Skip( (CurrPage-1) * 5 ).Take(5).OrderBy(x => x.IdItem);
+                CurrPage--;
+                tbox_page.Text = CurrPage.ToString();
+            }
+        }
+
+        private void getNext(object sender, RoutedEventArgs e)
+        {
+            if  (CurrPage < NumberOfAPages)
+            {
+                this.DataContext = ItemList.Skip((CurrPage - 1) * 5).Take(5).OrderBy(x => x.IdItem);
+                CurrPage++;
+                tbox_page.Text = CurrPage.ToString();
+            }
         }
     }
 }

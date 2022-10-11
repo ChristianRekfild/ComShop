@@ -85,7 +85,7 @@ namespace ComShop
         // Открыть список товаров
         private void Button_OpenListItems(object sender, RoutedEventArgs e)
         {
-            ListOfItems listOfItems = new ListOfItems(UserID);
+            ListOfItems listOfItems = new ListOfItems(UserID, tbox_description.Text, tbox_serial.Text, chbox_inStock.IsChecked);
             listOfItems.Show();            
             this.Close();
         }

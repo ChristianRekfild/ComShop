@@ -104,5 +104,10 @@ namespace ComShop
         {
             SaveDataOnDB();
         }
+
+        private void tbox_patronymic_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

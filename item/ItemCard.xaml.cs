@@ -43,12 +43,16 @@ namespace ComShop
                 if (dbItem.Description != null)
                     tboxDesciption.Text = dbItem.Description;
                 // Даты покупки и продажи
-                tboxDateOfPurchase.Text = dbItem.DateOfPurchase.ToString();
+                tboxDateOfPurchase.Text = dbItem.DateOfPurchase.ToString("dd-MM-yyyy");
                 if (user.AcessLevel < 5)
                     tboxDateOfPurchase.IsReadOnly = true;
 
                 if (dbItem.DateOfSale != null)
-                    tboxDateOfSale.Text = dbItem.DateOfSale.ToString();
+                {
+                    // nullable type не захотел дружить, потому пришлось призывать посредников
+                    DateOnly date = (DateOnly)dbItem.DateOfSale;
+                    tboxDateOfSale.Text = date.ToString("dd-MM-yyyy");
+                }
                 else
                     tboxDateOfSale.Text = string.Empty;
 

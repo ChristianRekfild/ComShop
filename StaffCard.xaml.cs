@@ -45,7 +45,7 @@ namespace ComShop
                 tbox_name.Text = staff.Name;
                 tbox_familyName.Text = staff.FamilyName;
                 tbox_patronymic.Text = staff.Patronymic;
-                tbox_dateOfBirth.Text = staff.DateOfBirth.ToString();
+                tbox_dateOfBirth.Text = staff.DateOfBirth.ToString("dd-MM-yyyy");
                 tbox_passport.Text = staff.Passport;
                 tbox_login.Text = staff.Login;
                 tbox_acessLevel.Text = staff.AcessLevel.ToString();

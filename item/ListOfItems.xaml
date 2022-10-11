@@ -20,8 +20,8 @@
                     <GridViewColumn Header="В ремонте" DisplayMemberBinding="{Binding Path=UnderRepair}"  Width="70"></GridViewColumn>
                     <GridViewColumn Header="Стоимость ремонта" DisplayMemberBinding="{Binding Path=RepairCosts}"  Width="120"></GridViewColumn>
                     <GridViewColumn Header="Серийный номер" DisplayMemberBinding="{Binding Path=SerialNumber}"  Width="150"></GridViewColumn>
-                    <GridViewColumn Header="Дата покупки" DisplayMemberBinding="{Binding Path=DateOfPurchase}"  Width="100"></GridViewColumn>
-                    <GridViewColumn Header="Дата продажи" DisplayMemberBinding="{Binding Path=DateOfSale}"  Width="100"></GridViewColumn>
+                    <GridViewColumn Header="Дата покупки" DisplayMemberBinding="{Binding Path=DateOfPurchase, StringFormat='dd-MM-yyyy'}"  Width="100"></GridViewColumn>
+                    <GridViewColumn Header="Дата продажи" DisplayMemberBinding="{Binding Path=DateOfSale, StringFormat='dd-MM-yyyy'}"  Width="100"></GridViewColumn>
 
                 </GridView>
             </ListView.View>
@@ -29,5 +29,8 @@
 
         <Button Content="Открыть" Height="43" VerticalAlignment="Top" Margin="981,635,10,0" Click="Button_Click"/>
         <Button Content="Главное меню" Height="43" VerticalAlignment="Top" Margin="10,635,981,0" Click="Btn_MainMenu"/>
+        <Button x:Name="btn_next" Content="&gt;" HorizontalAlignment="Left" Margin="1230,10,0,0" VerticalAlignment="Top" Width="40" Click="getNext"/>
+        <Button x:Name="btn_prev" Content="&lt;" HorizontalAlignment="Left" Margin="1075,10,0,0" VerticalAlignment="Top" Width="40" Click="getPrev"/>
+        <TextBox x:Name="tbox_page" HorizontalAlignment="Left" Margin="1145,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80"/>
     </Grid>
 </Window>

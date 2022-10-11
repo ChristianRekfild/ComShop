@@ -49,31 +49,35 @@ namespace ComShop
             NpgsqlCommand cmd = new NpgsqlCommand(@query, connect);
             NpgsqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
-                //MessageBox.Show("Запрос выполнен!");
+            
+            // запрещаем попытки схода при ошибке авторизации
+            try { 
+                    // Если криптохэш совпадает с БД
+                if (reader[0].ToString() == login)
+                {
 
-                // Если криптохэш совпадает с БД
-            if (reader[0].ToString() == login)
+                    this.Hide();
+                    string strUserId = reader[2].ToString();
+                    int intUserId = Convert.ToInt32(reader[2].ToString());
+                    AfterLogin after = new AfterLogin(intUserId);
+                    after.Show();
+                
+                
+                    //afterLogin
+                    //PreHistory preHistory = new PreHistory();
+                    //this.Close();
+                    //preHistory.ShowDialog();
+
+                }
+                // Нужно было для теста
+                //MessageBox.Show(reader[0].ToString());
+
+                //MessageBox.Show(reader[2].ToString());
+                this.Close();
+            } catch
             {
-
-                this.Hide();
-                string strUserId = reader[2].ToString();
-                int intUserId = Convert.ToInt32(reader[2].ToString());
-                AfterLogin after = new AfterLogin(intUserId);
-                after.Show();
-                
-                
-                //afterLogin
-                //PreHistory preHistory = new PreHistory();
-                //this.Close();
-                //preHistory.ShowDialog();
-
+                MessageBox.Show("Введён неверный пароль.\nВ доступе отказано");
             }
-            // Нужно было для теста
-            //MessageBox.Show(reader[0].ToString());
-
-            //MessageBox.Show(reader[2].ToString());
-            this.Close();
-
 
         }
     }

@@ -17,7 +17,7 @@
                     <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding Path=FamilyName}" Width="300"></GridViewColumn>
                     <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Path=Name}" Width="300"></GridViewColumn>
                     <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding Path=Patronymic}" Width="250"></GridViewColumn>
-                    <GridViewColumn Header="Дата рождения" DisplayMemberBinding="{Binding Path=DateOfBirth}" Width="200"></GridViewColumn>
+                    <GridViewColumn Header="Дата рождения" DisplayMemberBinding="{Binding Path=DateOfBirth , StringFormat='dd-MM-yyyy'}" Width="200"></GridViewColumn>
                     <GridViewColumn Header="Пасспорт" DisplayMemberBinding="{Binding Path=Passport}" Width="150"></GridViewColumn>
                 </GridView>
             </ListView.View>
