@@ -1,0 +1,28 @@
+﻿<Window x:Class="ComShop.ListOfRepairMaster"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ComShop"
+        WindowState="Maximized"
+        mc:Ignorable="d"
+        Title="Список мастеров по ремонту" Height="720" Width="1280">
+    <Grid>
+        <ListView Name="repairMasterList" Height="599" VerticalAlignment="Top" Margin="0,31,0,0" ItemsSource="{Binding}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Path=IdRepairMatser}" Width="50"></GridViewColumn>
+                    <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding Path=FamilyName}" Width="300"></GridViewColumn>
+                    <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Path=Name}" Width="300"></GridViewColumn>
+                    <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding Path=Patronymic}" Width="250"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button Content="Главное меню" HorizontalAlignment="Left" Margin="10,635,0,24"  Height="45" Width="300" Click="goToMainMenu"/>
+        <Button x:Name="btn_addRepairMaster" Content="Добавить мастера по ремонту" HorizontalAlignment="Left" Margin="335,635,0,24" Height="45" Width="300"  Click="btn_addRepairMaster"/>
+
+        <Button x:Name="btn_openRepairMasterCard" Content="Открыть карточку" HorizontalAlignment="Left" Margin="640,635,0,24" Height="45" Width="300"  Click="openRepairMasterCars"/>
+        <Button x:Name="btn_selectRepairMaster" Content="Выбрать мастера" HorizontalAlignment="Left" Margin="970,635,0,24" Height="45" Width="300" Click="openRepairMasterCard"/>
+    </Grid>
+</Window>
