@@ -25,19 +25,10 @@ namespace ComShop
         {
             UserID = userID;
             InitializeComponent();
-            SetEmptyData();
             SetSettingByAcessLevel();
         }
 
-        private void SetEmptyData()
-        {
-            tbox_ID.Text = string.Empty;
-            tbox_familyName.Text = string.Empty;
-            tbox_name.Text = string.Empty;
-            tbox_patronymic.Text = string.Empty;
-            tbox_dateOfBirth.Text = string.Empty;
-            tbox_passport.Text = string.Empty;
-        }
+
 
         private void SetSettingByAcessLevel()
         {
@@ -60,7 +51,8 @@ namespace ComShop
             if (String.IsNullOrEmpty(tbox_familyName.Text)) return false;
             if (String.IsNullOrEmpty(tbox_name.Text)) return false;
             // Отчество допусткает пустое значение
-            if (String.IsNullOrEmpty(tbox_dateOfBirth.Text)) return false;
+            //if (String.IsNullOrEmpty(tbox_dateOfBirth.Text)) return false;
+            if (cld_dateOfDirth.SelectedDate == null) return false;
             if (String.IsNullOrEmpty(tbox_passport.Text)) return false;
 
 
@@ -83,12 +75,22 @@ namespace ComShop
                     FamilyName = tbox_familyName.Text,
                     Name = tbox_name.Text,
                     Patronymic = tbox_patronymic.Text,
-                    DateOfBirth = DateOnly.Parse(tbox_dateOfBirth.Text),
+                    //DateOfBirth = DateOnly.Parse(tbox_dateOfBirth.Text),
+                    DateOfBirth = new DateOnly(cld_dateOfDirth.SelectedDate.Value.Year,
+                                                cld_dateOfDirth.SelectedDate.Value.Month,
+                                                cld_dateOfDirth.SelectedDate.Value.Day
+                                                ),
                     Passport = tbox_passport.Text
                 };
 
                 comShop.Clients.Add(client);
                 comShop.SaveChanges();
+
+                MessageBox.Show("Клиент успешно добавлен");
+
+                AfterLogin after = new AfterLogin(UserID);
+                after.Show();
+                this.Close();
             }
         }
 

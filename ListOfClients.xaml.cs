@@ -23,13 +23,16 @@ namespace ComShop
         private int UserID;
         int ClientID;
         int CategoryID;
+        private List<Client> clients;
+        int NumberOfAPages;
+        int CurrPage;
         public ListOfClients(int userID, int categoryID, int clientID)
         {
             UserID = userID;
             ClientID = clientID;
             CategoryID = categoryID;
-            GetClientList();
             InitializeComponent();
+            GetClientList();
             SetSettingsByAcessLevel(UserID);
         }
 
@@ -37,12 +40,24 @@ namespace ComShop
         {
             using (ComShopContext context = new ComShopContext())
             {
-                this.DataContext = context.Clients.ToList();
+                clients = new List<Client>();
+                clients = context.Clients.ToList();
+                this.DataContext = clients.Skip(0).Take(15);
+
+                CurrPage = 1;
+                tbox_page.Text = CurrPage.ToString();
+                NumberOfAPages = clients.Count / 15;
+                if (clients.Count % 15 != 0)
+                    NumberOfAPages++;
+                tbox_totalPages.Text = NumberOfAPages.ToString();
             }
         }
 
         public void SetSettingsByAcessLevel(int userID)
         {
+            tbox_page.IsReadOnly = true;
+            tbox_totalPages.IsReadOnly = true;
+
             using (ComShopContext comShop = new ComShopContext())
             {
                 var user = comShop.staff.Find(UserID);
@@ -75,7 +90,6 @@ namespace ComShop
         // Выбираем клиента для покупки
         private void selectClient(object sender, RoutedEventArgs e)
         {
-            //Item? item = listOfItemsblah.SelectedItem as Item;
             Client? client = clientList.SelectedItem as Client;
 
             if (client == null)
@@ -87,6 +101,57 @@ namespace ComShop
             BuyItem buyItem = new BuyItem(UserID, CategoryID, client.IdClient);
             buyItem.Show();
             this.Close();
+        }
+
+        private void getPrev(object sender, RoutedEventArgs e)
+        {
+            if (CurrPage > 1)
+            {
+                this.DataContext = clients.Skip((CurrPage - 1) * 15).Take(15).OrderBy(x => x.IdClient);
+                CurrPage--;
+                tbox_page.Text = CurrPage.ToString();
+            }
+        }
+
+        private void getNext(object sender, RoutedEventArgs e)
+        {
+            if (CurrPage < NumberOfAPages)
+            {
+                this.DataContext = clients.Skip((CurrPage - 1) * 15).Take(15).OrderBy(x => x.IdClient);
+                CurrPage++;
+                tbox_page.Text = CurrPage.ToString();
+            }
+        }
+
+        // Найти клиентов
+        private void findClients(object sender, RoutedEventArgs e)
+        {
+            using (ComShopContext context = new ComShopContext())
+            {
+                // Защита от польщователя, который ввёл только пробелы, а потом удивляется, "А почему ничего не найдёно??.."
+                if (String.IsNullOrWhiteSpace(tbox_familyName.Text))
+                    tbox_familyName.Text = String.Empty;
+                if (String.IsNullOrWhiteSpace(tbox_name.Text))
+                    tbox_name.Text = String.Empty;
+                if (String.IsNullOrWhiteSpace(tbox_patronomic.Text))
+                    tbox_patronomic.Text = String.Empty;
+                if (String.IsNullOrWhiteSpace(tbox_passport.Text))
+                    tbox_passport.Text = String.Empty;
+
+                clients = context.Clients.Where(x => x.FamilyName.Contains(tbox_familyName.Text)).Where(x => x.Name.Contains(tbox_name.Text)).Where(x => x.Patronymic.Contains(tbox_patronomic.Text)).Where(x => x.Passport.Contains(tbox_passport.Text)).OrderBy(x => x.IdClient).ToList();
+
+                //this.DataContext = ItemList;
+
+                this.DataContext = clients.Skip(0).Take(15);
+
+                CurrPage = 1;
+                tbox_page.Text = CurrPage.ToString();
+                NumberOfAPages = clients.Count / 15;
+                if (clients.Count % 15 != 0)
+                    NumberOfAPages++;
+
+                tbox_totalPages.Text = NumberOfAPages.ToString();
+            }
         }
     }
 }

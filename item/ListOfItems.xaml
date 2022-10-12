@@ -30,7 +30,9 @@
         <Button Content="Открыть" Height="43" VerticalAlignment="Top" Margin="981,635,10,0" Click="Button_Click"/>
         <Button Content="Главное меню" Height="43" VerticalAlignment="Top" Margin="10,635,981,0" Click="Btn_MainMenu"/>
         <Button x:Name="btn_next" Content="&gt;" HorizontalAlignment="Left" Margin="1230,10,0,0" VerticalAlignment="Top" Width="40" Click="getNext"/>
-        <Button x:Name="btn_prev" Content="&lt;" HorizontalAlignment="Left" Margin="1075,10,0,0" VerticalAlignment="Top" Width="40" Click="getPrev"/>
-        <TextBox x:Name="tbox_page" HorizontalAlignment="Left" Margin="1145,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80"/>
+        <Button x:Name="btn_prev" Content="&lt;" HorizontalAlignment="Left" Margin="1067,10,0,0" VerticalAlignment="Top" Width="40" Click="getPrev"/>
+        <TextBox x:Name="tbox_page" HorizontalAlignment="Left" Margin="1113,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48"/>
+        <TextBox x:Name="tbox_page_Copy" HorizontalAlignment="Left" Margin="1177,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48"/>
+        <Label Content="/" HorizontalAlignment="Left" Margin="1161,5,0,0" VerticalAlignment="Top" Height="24" Width="16"/>
     </Grid>
 </Window>

@@ -25,19 +25,8 @@ namespace ComShop
         {
             InitializeComponent();
             UserID = staffId;
-
-            //string connString = "Host=localhost;Username=Chris;Password=Chris2113;Database=ComShop";
-            //NpgsqlConnection connect = new NpgsqlConnection(connString);
-            ////try
-            ////{
-            ////Открываем соединение.
-            //connect.Open();
-
-            //string query = $"SELECT login, password, id_staff FROM \"Staff\" WHERE login = '{login}' AND password = '{hashedPass}'";
-            //NpgsqlCommand cmd = new NpgsqlCommand(@query, connect);
-            //NpgsqlDataReader reader = cmd.ExecuteReader();
-            //reader.Read();
         }
+
         // Найти товар
         private void Button_Click(object sender, RoutedEventArgs e)
         {

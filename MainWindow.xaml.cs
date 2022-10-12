@@ -26,7 +26,6 @@ namespace ComShop
         public MainWindow()
         {
             InitializeComponent();
-            tboxLogin.Text = "madDesert";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -38,9 +37,6 @@ namespace ComShop
 
             string connString = "Host=localhost;Username=Chris;Password=Chris2113;Database=ComShop";
             NpgsqlConnection connect = new NpgsqlConnection(connString);
-            //try
-            //{
-                //Открываем соединение.
             connect.Open();
 
             CryptoHelper cryptHelp = new Libs.CryptoHelper();
@@ -60,19 +56,9 @@ namespace ComShop
                     string strUserId = reader[2].ToString();
                     int intUserId = Convert.ToInt32(reader[2].ToString());
                     AfterLogin after = new AfterLogin(intUserId);
-                    after.Show();
-                
-                
-                    //afterLogin
-                    //PreHistory preHistory = new PreHistory();
-                    //this.Close();
-                    //preHistory.ShowDialog();
+                    after.Show();               
 
                 }
-                // Нужно было для теста
-                //MessageBox.Show(reader[0].ToString());
-
-                //MessageBox.Show(reader[2].ToString());
                 this.Close();
             } catch
             {
