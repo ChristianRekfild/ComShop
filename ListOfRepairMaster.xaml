@@ -20,9 +20,9 @@
         </ListView>
 
         <Button Content="Главное меню" HorizontalAlignment="Left" Margin="10,635,0,24"  Height="45" Width="300" Click="goToMainMenu"/>
-        <Button x:Name="btn_addRepairMaster" Content="Добавить мастера по ремонту" HorizontalAlignment="Left" Margin="335,635,0,24" Height="45" Width="300"  Click="btn_addRepairMaster"/>
+        <Button x:Name="btn_addRepairMaster" Content="Добавить мастера по ремонту" HorizontalAlignment="Left" Margin="335,635,0,24" Height="45" Width="300"  Click="addRepairMaster"/>
 
         <Button x:Name="btn_openRepairMasterCard" Content="Открыть карточку" HorizontalAlignment="Left" Margin="640,635,0,24" Height="45" Width="300"  Click="openRepairMasterCars"/>
-        <Button x:Name="btn_selectRepairMaster" Content="Выбрать мастера" HorizontalAlignment="Left" Margin="970,635,0,24" Height="45" Width="300" Click="openRepairMasterCard"/>
+        <Button x:Name="btn_selectRepairMaster" Content="Выбрать мастера" HorizontalAlignment="Left" Margin="970,635,0,24" Height="45" Width="300" Click="selectRepairMasterCard"/>
     </Grid>
 </Window>

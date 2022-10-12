@@ -1,0 +1,27 @@
+﻿<Window x:Class="ComShop.RepairMasterCard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ComShop"
+        WindowState="Maximized"
+        mc:Ignorable="d"
+        Title="Карточка мастера по ремонту" Height="720" Width="1280">
+    <Grid>
+        <TextBox x:Name="tbox_id" HorizontalAlignment="Left" Margin="120,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="ID" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="60"/>
+        <Label Content="Фамилия" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top"/>
+        <Label Content="Имя" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top" Width="60"/>
+        <Label Content="Отчество" HorizontalAlignment="Left" Margin="10,108,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbox_familyName" HorizontalAlignment="Left" Margin="119,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbox_name" HorizontalAlignment="Left" Margin="119,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbox_patronymic" HorizontalAlignment="Left" Margin="120,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbox_passport" HorizontalAlignment="Left" Margin="120,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lab_dateOfBirth" Content="Дата рождения" HorizontalAlignment="Left" Margin="10,170,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lab_passport" Content="Паспорт" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btn_save" Content="Сохранить" HorizontalAlignment="Left" Margin="1010,644,0,0" VerticalAlignment="Top" Width="260" Height="45" Click="btn_ClickToSave"/>
+        <Button  Content="Главное меню" HorizontalAlignment="Left" Margin="10,644,0,0" VerticalAlignment="Top" Width="288" Height="45" Click="btn_mainMenu"/>
+        <Calendar x:Name="cld_dateOfDirth" HorizontalAlignment="Left" Margin="119,175,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

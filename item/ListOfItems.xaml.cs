@@ -80,10 +80,6 @@ namespace ComShop
                 ItemCard itemCard = new ItemCard(UserID, item.IdItem);
                 itemCard.Show();
                 this.Close();
-
-                //ListOfItems listOfItems = new ListOfItems(UserID);
-                //listOfItems.Show();
-                //this.Close();
             }
 
         }
