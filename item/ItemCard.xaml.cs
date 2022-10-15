@@ -30,6 +30,7 @@ namespace ComShop
             InitializeComponent();
             Getitem(ItemID);
             SetSettingsByAcessLevel(UserID, ItemID);
+            SetSettingsForSoldItem();
         }
 
         public void Getitem(int itemID)
@@ -94,12 +95,6 @@ namespace ComShop
                 // Никто не достоин редактировать ID товара. Только высшие администраторы из легенд!
                 tboxID.IsReadOnly = true;
 
-                // запрещаем продажу и отправку на ремонт для стажёров
-                if (user.AcessLevel < 1)
-                {
-                    btn_sellItem.Visibility = Visibility.Collapsed;
-                    btn_repair.Visibility = Visibility.Collapsed;
-                }
 
                 // Только директор может редактировть ценник уже проданного товара
                 if (user.AcessLevel < 5)
@@ -115,6 +110,18 @@ namespace ComShop
                         // Если товар уже продан - никому кроме директора нельзя редактировать цену товара
                         tboxPrice.IsReadOnly = true;
                     }
+                }
+
+                // Отправка на ремонт
+                if (user.AcessLevel < 2)
+                {
+                    btn_repair.Visibility = Visibility.Collapsed;
+                }
+
+                // вернуть товар с ремонта может только менеджер магазина
+                if (user.AcessLevel < 3)
+                {
+                    btn_returnFromRepair.Visibility = Visibility.Collapsed;
                 }
 
                 // Запрещаем редактировать стоимость покупки всем кроме заместителя директора
@@ -139,9 +146,31 @@ namespace ComShop
                 if (user.AcessLevel < 4)
                     chboxUnderRepair.IsEnabled = false;
 
-                if (user.AcessLevel < 4)
-                    tboxDateOfSale.IsReadOnly = true;
+                tboxDateOfSale.IsReadOnly = true;
+                tboxDateOfPurchase.IsReadOnly = true;
+
+                if (dbItem.UnderRepair)
+                    btn_repair.IsEnabled = false;
+                
+                if (!dbItem.UnderRepair)
+                    btn_returnFromRepair.IsEnabled = false;
             }
+        }
+
+        private void SetSettingsForSoldItem()
+        {
+            using (ComShopContext context = new ComShopContext())
+            {
+                var item = context.Items.Find(ItemID);
+
+                if (item.DateOfSale != null)
+                {
+                    btn_repair.Visibility = Visibility.Collapsed;
+                    btn_returnFromRepair.Visibility = Visibility.Collapsed;
+                    btn_sellItem.Visibility = Visibility.Collapsed;
+                }
+            }
+            
         }
 
         private void chboxUnderRepair_Checked(object sender, RoutedEventArgs e)
@@ -190,6 +219,56 @@ namespace ComShop
         // Отправить на ремонт
         private void sendForRepair(object sender, RoutedEventArgs e)
         {
+            ListOfRepairMaster listOfRepairMaster = new ListOfRepairMaster(UserID, ItemID);
+            listOfRepairMaster.Show();
+            this.Close();
+        }
+
+        // Вернуть с ремонта
+        private void returnFromRepair(object sender, RoutedEventArgs e)
+        {
+            ReturnFromRepair repair = new ReturnFromRepair(UserID, ItemID);
+            repair.Show();
+            this.Close();
+        }
+
+        private bool CheckDataBeforeSave(){
+            if ( String.IsNullOrWhiteSpace(tboxDesciption.Text) ) return false;
+            if (String.IsNullOrWhiteSpace(tboxSerialNo.Text)) return false;
+            decimal priceIn;
+            decimal priceOut;
+            if ( !Decimal.TryParse(tboxPurchasedCosts.Text, out priceIn) ) return false;
+            if ( !Decimal.TryParse(tboxPrice.Text, out priceOut) ) return false;
+
+            return true;
+        }
+
+        // Сохранить изменения
+        private void saveItemChanges(object sender, RoutedEventArgs e)
+        {
+            if ( !CheckDataBeforeSave())
+            {
+                MessageBox.Show("Ошибка заполнения данных\nПроверьте правильность");
+                return;
+            }
+
+            using (ComShopContext context = new ComShopContext())
+            {
+                var item = context.Items.Find(ItemID);
+                item.Description = tboxDesciption.Text;
+                item.SerialNumber = tboxSerialNo.Text;
+                decimal priceIn;
+                decimal priceOut;
+                decimal repairCost;
+                Decimal.TryParse(tboxPurchasedCosts.Text, out priceIn);
+                Decimal.TryParse(tboxPrice.Text, out priceOut);
+                Decimal.TryParse(tboxRepairCosts.Text, out repairCost);
+                item.PurchaseAmount = priceIn;
+                item.Price = priceOut;
+                item.RepairCosts = repairCost;
+
+                context.SaveChanges();
+            }
 
         }
     }

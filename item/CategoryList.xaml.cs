@@ -1,4 +1,5 @@
-﻿using ComShop.Model;
+﻿using ComShop.item;
+using ComShop.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,7 +51,6 @@ namespace ComShop
 
         private void selectCategory(object sender, RoutedEventArgs e)
         {
-            //Item? item = listOfItemsblah.SelectedItem as Item;
             Category? category = categoryList.SelectedItem as Category;
             if (category == null)
             {
@@ -60,6 +60,14 @@ namespace ComShop
             
             BuyItem buyItem = new BuyItem(UserID, category.IdCategory, ClientID);
             buyItem.Show();
+            this.Close();
+        }
+
+        // Добавить категорию
+        private void addCategory(object sender, RoutedEventArgs e)
+        {
+            AddCategory add = new AddCategory(UserID);
+            add.Show();
             this.Close();
         }
     }

@@ -25,9 +25,11 @@ namespace ComShop
         private int ItemID;
         public ListOfRepairMaster(int staffID, int itemID)
         {
+            UserID = staffID;
+            ItemID = itemID;
             InitializeComponent();
             SetSettingsByAcessLevel(UserID);
-            ItemID = itemID;
+            GetRepairMasterList();
         }
 
         private void SetSettingsByAcessLevel(int userID)
@@ -58,7 +60,7 @@ namespace ComShop
         {
             using (ComShopContext context = new ComShopContext())
             {
-                this.DataContext = context.Categories.ToList();
+                this.DataContext = context.RepairMasters.ToList();
             }
         }
 
@@ -80,6 +82,13 @@ namespace ComShop
 
                 context.SaveChanges();
             }
+
+            MessageBox.Show("Товар успешно отправлен на ремонт");
+
+            AfterLogin after = new AfterLogin(UserID);
+            after.Show();
+            this.Close();
+
         }
 
         // Открыть карточку мастера

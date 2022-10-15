@@ -19,11 +19,6 @@
         <TextBlock HorizontalAlignment="Left" Margin="700,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289" TextAlignment="Center" FontSize="18" FontWeight="Bold"><Run Language="ru-ru" Text="Поиск товара" /></TextBlock>
         <TextBox x:Name="tbox_description" HorizontalAlignment="Left" Margin="660,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="298" Height="34" FontSize="18"/>
         <Button Content="Найти" HorizontalAlignment="Left" Margin="660,160,0,0" VerticalAlignment="Top" Height="34" Width="298" Click="Button_OpenListItems" FontSize="18"/>
-        <TextBlock HorizontalAlignment="Left" Margin="700,532,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289" TextAlignment="Center" FontSize="18" FontWeight="Bold"><Run Text="Поиск "/><Run Language="ru-ru" Text="клиента"/></TextBlock>
-        <TextBox HorizontalAlignment="Left" Margin="471,584,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="298" Height="34" FontSize="18"/>
-        <Label Content="Остальные фильтры сделаю потом!" HorizontalAlignment="Left" Margin="471,638,0,0" VerticalAlignment="Top" Width="487" Background="#FFFBFBFB" Foreground="Red" FontWeight="Bold" FontSize="18"/>
-        <Rectangle HorizontalAlignment="Left" Height="4" Margin="320,498,0,0" Stroke="Black" VerticalAlignment="Top" Width="884" Fill="Black"/>
-        <Button Content="Найти" HorizontalAlignment="Left" Margin="795,582,0,0" VerticalAlignment="Top" Height="36" Width="163" Click="Button_Click_6" FontSize="18"/>
         <Label Content="Название" HorizontalAlignment="Left" Margin="471,56,0,0" VerticalAlignment="Top" Width="167"/>
         <Label Content="Серийный номер" HorizontalAlignment="Left" Margin="471,95,0,0" VerticalAlignment="Top" Width="167"/>
         <Label Content="В наличии" HorizontalAlignment="Left" Margin="471,134,0,0" VerticalAlignment="Top" Width="167"/>

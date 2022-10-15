@@ -69,6 +69,12 @@ namespace ComShop
                     context.Add(master);
                     context.SaveChanges();
                 }
+
+                MessageBox.Show("Мастер по ремнту успешно добавлен");
+
+                AfterLogin after = new AfterLogin(UserID);
+                after.Show();
+                this.Close();
             }
         }
 

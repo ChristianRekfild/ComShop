@@ -28,7 +28,9 @@
         <CheckBox x:Name="chboxUnderRepair" Content="CheckBox" HorizontalAlignment="Left" Margin="413,205,0,0" VerticalAlignment="Top" Width="17" Checked="chboxUnderRepair_Checked"/>
         <Button Content="Главное меню" HorizontalAlignment="Left" Height="45" Width="250" Margin="10,649,0,0" VerticalAlignment="Top" Click="Btn_MainMenu"/>
         <Button x:Name="btn_sellItem" Content="Продать" HorizontalAlignment="Left" Height="45" Width="250" Margin="1020,649,0,0" VerticalAlignment="Top" Click="sellItem"/>
-        <Button x:Name="btn_repair" Content="Отправить на ремонт" HorizontalAlignment="Left" Height="45" Width="250" Margin="765,649,0,0" VerticalAlignment="Top" Click="sendForRepair"/>
+        <Button x:Name="btn_repair" Content="Отправить на ремонт" HorizontalAlignment="Left" Height="45" Width="250" Margin="265,649,0,0" VerticalAlignment="Top" Click="sendForRepair"/>
+        <Button x:Name="btn_returnFromRepair" Content="Вернуть с ремонта" HorizontalAlignment="Left" Height="45" Width="250" Margin="520,649,0,0" VerticalAlignment="Top" Click="returnFromRepair"/>
+        <Button x:Name="btn_saveChanges" Content="Сохранить изменения" HorizontalAlignment="Left" Height="45" Width="245" Margin="770,649,0,0" VerticalAlignment="Top" Click="saveItemChanges"/>
 
     </Grid>
 </Window>

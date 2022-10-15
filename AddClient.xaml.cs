@@ -52,7 +52,9 @@ namespace ComShop
             if (String.IsNullOrEmpty(tbox_name.Text)) return false;
             // Отчество допусткает пустое значение
             //if (String.IsNullOrEmpty(tbox_dateOfBirth.Text)) return false;
-            if (cld_dateOfDirth.SelectedDate == null) return false;
+            if (cld_dateOfDirth.SelectedDate == null) {
+                MessageBox.Show("Йа тут!");
+                return false; }
             if (String.IsNullOrEmpty(tbox_passport.Text)) return false;
 
 

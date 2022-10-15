@@ -1,0 +1,17 @@
+﻿<Window x:Class="ComShop.item.ReturnFromRepair"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ComShop.item"
+        WindowState="Maximized"
+        ResizeMode="NoResize"
+        mc:Ignorable="d"
+        Title="Возврат с ремонта" Height="720" Width="1280">
+    <Grid>
+        <Label Content="Введите стоимость затрат на ремонт" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,115,0,0" VerticalAlignment="Top" Width="700" Height="54" FontSize="40"/>
+        <TextBox x:Name="tbox_cost" HorizontalAlignment="Center" Margin="0,219,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="700" Height="63" FontSize="40"/>
+        <Button Content="Вернуть товар с ремонта" HorizontalAlignment="Center" Margin="0,316,0,0" VerticalAlignment="Top" Width="700" Height="62" FontSize="40" Click="returnItem"/>
+
+    </Grid>
+</Window>
