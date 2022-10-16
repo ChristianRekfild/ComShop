@@ -33,12 +33,11 @@ namespace ComShop
             DescriptionContains = descContains;
             SerialContains = serialContains;
             InStock = inStock;
-
-            getListOfItems();
             InitializeComponent();
+            getListOfItems();
             tbox_page.IsReadOnly = true;
             tbox_page.Text = CurrPage.ToString();
-
+            tbox_total.Text = NumberOfAPages.ToString();
 
         }
 
@@ -56,13 +55,12 @@ namespace ComShop
 
                 //this.DataContext = ItemList;
 
-                this.DataContext = ItemList.Skip(0).Take(5);
+                this.DataContext = ItemList.Skip(0).Take(15);
 
                 CurrPage = 1;
-                NumberOfAPages = ItemList.Count / 5;
-                if (ItemList.Count % 5 != 0)
+                NumberOfAPages = ItemList.Count / 15;
+                if (ItemList.Count % 15 != 0)
                     NumberOfAPages++;
-
 
             }
         }
@@ -102,7 +100,7 @@ namespace ComShop
         {
             if (CurrPage > 1)
             {
-                this.DataContext = ItemList.Skip( (CurrPage-1) * 5 ).Take(5).OrderBy(x => x.IdItem);
+                this.DataContext = ItemList.Skip( (CurrPage-1) * 15 ).Take(15).OrderBy(x => x.IdItem);
                 CurrPage--;
                 tbox_page.Text = CurrPage.ToString();
             }
@@ -112,7 +110,7 @@ namespace ComShop
         {
             if  (CurrPage < NumberOfAPages)
             {
-                this.DataContext = ItemList.Skip((CurrPage - 1) * 5).Take(5).OrderBy(x => x.IdItem);
+                this.DataContext = ItemList.Skip((CurrPage - 1) * 15).Take(15).OrderBy(x => x.IdItem);
                 CurrPage++;
                 tbox_page.Text = CurrPage.ToString();
             }

@@ -84,6 +84,11 @@ namespace ComShop
 
         }
 
-        
+        private void openReport(object sender, RoutedEventArgs e)
+        {
+            Report report = new Report(UserID);
+            report.Show();
+            this.Close();
+        }
     }
 }

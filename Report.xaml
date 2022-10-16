@@ -9,11 +9,28 @@
         mc:Ignorable="d"
         Title="Отчёты" Height="720" Width="1280">
     <Grid>
-        <Label x:Name="cld_start" Content="Дата начала" HorizontalAlignment="Left" Margin="8,10,0,0" VerticalAlignment="Top" Width="179" FontSize="14" HorizontalContentAlignment="Center"/>
-        <Label x:Name="cld_end" Content="Дата окончания" HorizontalAlignment="Left" Margin="238,10,0,0" VerticalAlignment="Top" Width="179" FontSize="14" HorizontalContentAlignment="Center"/>
-        <Calendar HorizontalAlignment="Left" Margin="8,39,0,0" VerticalAlignment="Top"/>
-        <Calendar HorizontalAlignment="Left" Margin="238,39,0,0" VerticalAlignment="Top"/>
+        <Label  Content="Дата начала" HorizontalAlignment="Left" Margin="8,10,0,0" VerticalAlignment="Top" Width="179" FontSize="14" HorizontalContentAlignment="Center"/>
+        <Label Content="Дата окончания" HorizontalAlignment="Left" Margin="238,10,0,0" VerticalAlignment="Top" Width="179" FontSize="14" HorizontalContentAlignment="Center"/>
+        <Calendar x:Name="cld_start" HorizontalAlignment="Left" Margin="8,39,0,0" VerticalAlignment="Top"/>
+        <Calendar x:Name="cld_end"  HorizontalAlignment="Left" Margin="238,39,0,0" VerticalAlignment="Top"/>
         <Button Content="Рассчитать" HorizontalAlignment="Left" Margin="8,212,0,0" VerticalAlignment="Top" Width="407" Height="41" FontSize="30" Click="RunReport"/>
+        <Label   Visibility="Visible" x:Name="lab_turnover" Content="Оборот" HorizontalAlignment="Left" Margin="538,42,0,0" VerticalAlignment="Top" Width="166"/>
+        <Label   Visibility="Visible" x:Name="lab_clearProfit" Content="Чистая прибыль" HorizontalAlignment="Left" Margin="538,73,0,0" VerticalAlignment="Top" Width="166"/>
+        <Label   Visibility="Visible" x:Name="lab_repairCosts" Content="Затраты на ремонт" HorizontalAlignment="Left" Margin="538,105,0,0" VerticalAlignment="Top" Width="166"/>
+        <Label   Visibility="Visible" x:Name="lab_purchItemCount" Content="Товаров куплено" HorizontalAlignment="Left" Margin="538,136,0,0" VerticalAlignment="Top" Width="166"/>
+        <Label   Visibility="Visible" x:Name="lab_soldItemCount" Content="Товаров продано" HorizontalAlignment="Left" Margin="538,167,0,0" VerticalAlignment="Top" Width="166"/>
+        <Label   Visibility="Visible" x:Name="lab_itemOnRepairCount" Content="Товаров в ремонте" HorizontalAlignment="Left" Margin="538,198,0,0" VerticalAlignment="Top" Width="166"/>
+
+        <Label   Visibility="Visible" x:Name="lab_potentialTurnover" Content="Сумма товаров на витрине" HorizontalAlignment="Left" Margin="519,308,0,0" VerticalAlignment="Top" Width="204"/>
+        <Label   Visibility="Visible" x:Name="lab_costsOnItemInRepair" Content="Себестоимость товаров в ремонте" HorizontalAlignment="Left" Margin="519,335,0,0" VerticalAlignment="Top" Width="204"/>
+        <TextBox Visibility="Visible" x:Name="tbox_turnover" HorizontalAlignment="Left" Margin="728,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+        <TextBox Visibility="Visible" x:Name="tbox_clearProfit" HorizontalAlignment="Left" Margin="728,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+        <TextBox Visibility="Visible" x:Name="tbox_repairCosts" HorizontalAlignment="Left" Margin="728,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+        <TextBox Visibility="Visible" x:Name="tbox_purchItemCount" HorizontalAlignment="Left" Margin="728,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+        <TextBox Visibility="Visible" x:Name="tbox_soldItemCount" HorizontalAlignment="Left" Margin="728,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+        <TextBox Visibility="Visible" x:Name="tbox_itemOnRepairCount" HorizontalAlignment="Left" Margin="728,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+        <TextBox Visibility="Visible" x:Name="tbox_potentialTurnover" HorizontalAlignment="Left" Margin="728,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+        <TextBox Visibility="Visible" x:Name="tbox_costsOnItemInRepair" HorizontalAlignment="Left" Margin="728,339,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
 
 
     </Grid>
