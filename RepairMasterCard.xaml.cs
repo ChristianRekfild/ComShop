@@ -27,6 +27,7 @@ namespace ComShop
             UserID = staffID;
             RepairMasterID = repairMasterID;
             InitializeComponent();
+            GetMasterData();
             SetSettings();
         }
 
@@ -36,9 +37,33 @@ namespace ComShop
             tbox_id.IsReadOnly = true;
         }
 
+        private void GetMasterData()
+        {
+            if (RepairMasterID != 0)
+            {
+                using (ComShopContext context = new ComShopContext())
+                {
+                    var master = context.RepairMasters.Find(RepairMasterID);
+
+                    tbox_id.Text = master.IdRepairMatser.ToString();
+                    tbox_name.Text = master.Name;
+                    tbox_familyName.Text = master.FamilyName;
+                    tbox_patronymic.Text = master.Patronymic;
+                    tbox_passport.Text = master.Passport;
+                    DateTime date = DateTime.Parse(master.DateOfBirth.ToString());
+                    cld_dateOfDirth.SelectedDate = date;
+                }
+            }
+        }
+
         // Сохранить
         private void btn_ClickToSave(object sender, RoutedEventArgs e)
         {
+            if (!checkDataBeforeSave())
+            {
+                MessageBox.Show("Ошибка при заполнении данных!");
+                return;
+            }
             using (ComShopContext context = new ComShopContext())
             {
                 // Редактируем старого
@@ -53,6 +78,12 @@ namespace ComShop
                                                     cld_dateOfDirth.SelectedDate.Value.Day);
 
                     context.SaveChanges();
+
+                    MessageBox.Show("Мастер по ремонту успешно изменён");
+
+                    AfterLogin after2 = new AfterLogin(UserID);
+                    after2.Show();
+                    this.Close();
                 }
                 //Добавляем нового
                 if (RepairMasterID == 0)
@@ -68,9 +99,11 @@ namespace ComShop
 
                     context.Add(master);
                     context.SaveChanges();
+
+                    MessageBox.Show("Мастер по ремонту успешно добавлен");
                 }
 
-                MessageBox.Show("Мастер по ремнту успешно добавлен");
+                
 
                 AfterLogin after = new AfterLogin(UserID);
                 after.Show();

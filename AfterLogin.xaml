@@ -10,11 +10,8 @@
     <Grid>
         <Grid HorizontalAlignment="Left" Height="684" Margin="0,4,0,0" VerticalAlignment="Top" Width="293">
             <Button Content="Купить товар" HorizontalAlignment="Center" Margin="0,37,0,0" VerticalAlignment="Top" Width="273" Click="buyItem"/>
-            <Button Content="Список клиентов" HorizontalAlignment="Center" Margin="0,62,0,0" VerticalAlignment="Top" Width="273" Click="btn_addClient"/>
-            <Button Content="Приём из ремонта" HorizontalAlignment="Center" Margin="0,87,0,0" VerticalAlignment="Top" Width="273" Click="Button_Click_3"/>
-            <Button Content="Добавление новой категории" HorizontalAlignment="Center" Margin="0,112,0,0" VerticalAlignment="Top" Width="273" Click="Button_Click_4"/>
-            <Button Content="Добавление нового мастера" HorizontalAlignment="Center" Margin="0,137,0,0" VerticalAlignment="Top" Width="273" Click="btn_addRepairMaster"/>
-            <Button Content="Сотрудники" HorizontalAlignment="Center" Margin="0,162,0,0" VerticalAlignment="Top" Width="273" Click="btn_OpenStaffList"/>
+            <Button Content="Сотрудники" HorizontalAlignment="Center" Margin="0,62,0,0" VerticalAlignment="Top" Width="273" Click="btn_OpenStaffList"/>
+            <Button Content="Отчёты" HorizontalAlignment="Center" Margin="0,87,0,0" VerticalAlignment="Top" Width="273" Click="btn_OpenStaffList"/>
         </Grid>
         <TextBlock HorizontalAlignment="Left" Margin="700,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289" TextAlignment="Center" FontSize="18" FontWeight="Bold"><Run Language="ru-ru" Text="Поиск товара" /></TextBlock>
         <TextBox x:Name="tbox_description" HorizontalAlignment="Left" Margin="660,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="298" Height="34" FontSize="18"/>

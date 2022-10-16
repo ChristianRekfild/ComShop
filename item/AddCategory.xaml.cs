@@ -53,6 +53,8 @@ namespace ComShop.item
                 context.SaveChanges();
             }
 
+            MessageBox.Show("Категория успешно добавлена");
+
             AfterLogin after = new AfterLogin(UserID);
             after.Show();
             this.Close();

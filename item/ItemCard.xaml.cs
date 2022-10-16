@@ -95,6 +95,8 @@ namespace ComShop
                 // Никто не достоин редактировать ID товара. Только высшие администраторы из легенд!
                 tboxID.IsReadOnly = true;
 
+                if (user.AcessLevel < 4)
+                    tboxRepairCosts.IsReadOnly = true;
 
                 // Только директор может редактировть ценник уже проданного товара
                 if (user.AcessLevel < 5)
@@ -128,12 +130,15 @@ namespace ComShop
                 if (user.AcessLevel < 4)
                     tboxPurchasedCosts.IsReadOnly = true;
 
-                if (user.AcessLevel < 4)
-                    tboxRepairCosts.IsReadOnly = true;
+                
 
                 // Стажёрам не даем редактировать даже серийный номер
                 if (user.AcessLevel < 1)
+                {
+                    btn_saveChanges.Visibility = Visibility.Collapsed;
                     tboxSerialNo.IsReadOnly = true;
+                }
+                    
 
                 // Запрещаем редактировать серийный номер всем кроме зам директора для проданного товара
                 if (dbItem.DateOfSale != null)

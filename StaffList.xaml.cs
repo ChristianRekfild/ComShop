@@ -22,12 +22,22 @@ namespace ComShop
     /// </summary>
     public partial class StaffList : Window
     {
-        int UserID;
+        private int UserID;
         public StaffList(int staffID)
         {
             UserID = staffID;
             GetStaffList();
             InitializeComponent();
+            SetSettingsByAcessLevel();
+        }
+
+        private void SetSettingsByAcessLevel() {
+            using (ComShopContext context = new ComShopContext())
+            {
+                var user = context.staff.Find(UserID);
+                if (user.AcessLevel < 4)
+                    btn_addStaffCard.Visibility = Visibility.Collapsed;
+            }
         }
 
         public void GetStaffList()
@@ -56,6 +66,13 @@ namespace ComShop
         {
             AfterLogin afterLogin = new AfterLogin(UserID);
             afterLogin.Show();
+            this.Close();
+        }
+
+        private void addStaff(object sender, RoutedEventArgs e)
+        {
+            StaffCard staffCard = new StaffCard(UserID, 0);
+            staffCard.Show();
             this.Close();
         }
     }

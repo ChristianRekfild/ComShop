@@ -65,6 +65,7 @@ namespace ComShop.item
                     if ( price < (Decimal.Multiply(itemForSale.Price, new decimal(0.9) )))
                     {
                         MessageBox.Show($"Вы не можете продать товар менее чем за {Decimal.Multiply(itemForSale.Price, new decimal(0.9))}");
+                        return;
                     }
 
                 }
