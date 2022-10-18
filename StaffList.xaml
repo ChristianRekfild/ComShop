@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComShop"
         WindowState="Maximized"
+        WindowStyle="None"
         ResizeMode="NoResize"
         mc:Ignorable="d"
         Title="Персонал" Height="720" Width="1280">
@@ -24,7 +25,7 @@
             </ListView.View>
         </ListView>
 
-        <Button Content="Главное меню" Height="45" Width="300" VerticalAlignment="Top" Margin="10,635,981,0" Click="btn_MainMenu"/>
+        <Button Content="Главное меню" Height="45" Width="300" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,635,975,0" Click="btn_MainMenu"/>
         <Button Content="Открыть карточку" Height="45" Width="300" VerticalAlignment="Top" Margin="970,635,10,0" Click="btn_openStaffCard"/>
         <Button x:Name="btn_addStaffCard" Height="45" Width="300" Content="Добавить"  VerticalAlignment="Top" Margin="534,635,457,0" Click="addStaff"/>
     </Grid>
