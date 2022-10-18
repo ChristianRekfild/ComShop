@@ -147,5 +147,11 @@ namespace ComShop
 
         }
 
+        private void GoToMainMenu(object sender, RoutedEventArgs e)
+        {
+            AfterLogin after = new AfterLogin(UserID);
+            after.Show();
+            this.Close();
+        }
     }
 }

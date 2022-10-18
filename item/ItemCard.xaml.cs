@@ -78,7 +78,20 @@ namespace ComShop
                 else
                     chboxUnderRepair.IsChecked = false;
                 
-
+                if (dbItem.UnderRepair)
+                {
+                    lab_repairMaster.Content = "Находится в ремонте у";
+                    var master = comShop.RepairMasters.Find(dbItem.RepairMasterNo);
+                    tbox_repairMaster.Text = $"{master.FamilyName} {master.Name} {master.Patronymic}";
+                } else
+                {
+                    if (dbItem.RepairMasterNo != null)
+                    {
+                        var master = comShop.RepairMasters.Find(dbItem.RepairMasterNo);
+                        tbox_repairMaster.Text = $"{master.FamilyName} {master.Name} {master.Patronymic}";
+                    }
+                    lab_repairMaster.Content = "Был в ремонте у";
+                }
 
             }
 
@@ -159,6 +172,9 @@ namespace ComShop
                 
                 if (!dbItem.UnderRepair)
                     btn_returnFromRepair.IsEnabled = false;
+
+                // Запрет на редактирование мастера по ремонту. Сдедано больше для отсутсивия путаницы у пользователя.
+                tbox_repairMaster.IsReadOnly = true;
             }
         }
 

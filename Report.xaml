@@ -31,6 +31,7 @@
         <TextBox Visibility="Visible" x:Name="tbox_itemOnRepairCount" HorizontalAlignment="Left" Margin="728,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
         <TextBox Visibility="Visible" x:Name="tbox_potentialTurnover" HorizontalAlignment="Left" Margin="728,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
         <TextBox Visibility="Visible" x:Name="tbox_costsOnItemInRepair" HorizontalAlignment="Left" Margin="728,339,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+        <Button Content="Главное меню" HorizontalAlignment="Left" Margin="10,316,0,0" VerticalAlignment="Top" Width="407" Height="41" FontSize="30" Click="GoToMainMenu"/>
 
 
     </Grid>
