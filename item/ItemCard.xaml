@@ -37,6 +37,17 @@
         <Button x:Name="btn_saveChanges" Content="Сохранить изменения" HorizontalAlignment="Left" Height="45" Width="245" Margin="770,649,0,0" VerticalAlignment="Top" Click="saveItemChanges"/>
         <Label Content="Категория" HorizontalAlignment="Left" Margin="12,45,0,0" VerticalAlignment="Top" Width="77"/>
         <TextBox x:Name="tbox_category" HorizontalAlignment="Left" Margin="105,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="274"/>
+        <Label Content="Продавец" HorizontalAlignment="Left" Margin="12,344,0,0" VerticalAlignment="Top" Width="125" FontWeight="Bold"/>
+        <Label Content="Фамилия" HorizontalAlignment="Left" Margin="12,375,0,0" VerticalAlignment="Top" Width="125"/>
+        <Label Content="Имя" HorizontalAlignment="Left" Margin="10,406,0,0" VerticalAlignment="Top" Width="125"/>
+        <Label Content="Отчество" HorizontalAlignment="Left" Margin="10,437,0,0" VerticalAlignment="Top" Width="125"/>
+        <Label Content="Дата рождения" HorizontalAlignment="Left" Margin="10,468,0,0" VerticalAlignment="Top" Width="125"/>
+        <Label Content="Пасспорт" HorizontalAlignment="Left" Margin="10,499,0,0" VerticalAlignment="Top" Width="125"/>
+        <TextBox x:Name="tbox_familyName" HorizontalAlignment="Left" Margin="142,379,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273"/>
+        <TextBox x:Name="tbox_name" HorizontalAlignment="Left" Margin="142,410,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273"/>
+        <TextBox x:Name="tbox_patronymic" HorizontalAlignment="Left" Margin="142,441,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="273"/>
+        <TextBox x:Name="tbox_dateOfBirth" HorizontalAlignment="Left" Margin="142,472,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+        <TextBox x:Name="tbox_passport" HorizontalAlignment="Left" Margin="142,503,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
 
     </Grid>
 </Window>

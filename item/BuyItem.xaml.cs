@@ -89,10 +89,30 @@ namespace ComShop
             this.Close();
         }
 
+        // Проверка данных перед заполнением
+        private bool CheckDataBeforeAdd()
+        {
+            if (String.IsNullOrWhiteSpace(tbox_categoty.Text)) 
+                return false;
+            if (String.IsNullOrWhiteSpace(tbox_client.Text))
+                return false;
+            if (String.IsNullOrWhiteSpace(tbox_description.Text))
+                return false;
+            if (String.IsNullOrWhiteSpace(tbox_purchPrice.Text))
+                return false;
+            if (String.IsNullOrWhiteSpace(tbox_price.Text))
+                return false;
+
+            return true;
+        }
+
         private void buyItem(object sender, RoutedEventArgs e)
         {
-
-            // TODO добавить блок проверок 
+            if (!CheckDataBeforeAdd())
+            {
+                MessageBox.Show("Ошибка при заполенении данных");
+                return;
+            }
 
             using (ComShopContext comshop = new ComShopContext())
             {
@@ -119,6 +139,7 @@ namespace ComShop
             AfterLogin after = new AfterLogin(UserID);
             after.Show();
             this.Close();
+
         }
 
     }

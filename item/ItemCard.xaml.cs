@@ -95,6 +95,14 @@ namespace ComShop
 
                 var category = comShop.Categories.Find(dbItem.CaregoryNo);
                 tbox_category.Text = category.Name;
+
+                // Заполнение данныч о продавце 
+                var seller = comShop.Clients.Find(dbItem.ClientNo);
+                tbox_familyName.Text = seller.FamilyName;
+                tbox_name.Text = seller.Name;
+                tbox_patronymic.Text = seller.Patronymic;
+                tbox_dateOfBirth.Text = seller.DateOfBirth.ToString("dd-MM-yyyy");
+                tbox_passport.Text = seller.Passport;
             }
 
         }
@@ -173,6 +181,13 @@ namespace ComShop
 
                 // Так же просто для отсутствия путианицы у пользователя
                 tbox_category.IsReadOnly = true;
+
+                // Данные о продавце в режиме чтения. Так же для отсутствия путиницы у пользователя
+                tbox_familyName.IsReadOnly = true;
+                tbox_name.IsReadOnly = true;
+                tbox_patronymic.IsReadOnly = true;
+                tbox_dateOfBirth.IsReadOnly = true;
+                tbox_passport.IsReadOnly = true;
             }
         }
 
