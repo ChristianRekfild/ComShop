@@ -35,6 +35,12 @@ namespace ComShop
         private void SetSettings()
         {
             tbox_id.IsReadOnly = true;
+            using (ComShopContext context = new ComShopContext())
+            {
+                var user = context.staff.Find(UserID);
+                if (user.AcessLevel < 4)
+                    btn_save.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void GetMasterData()

@@ -153,5 +153,21 @@ namespace ComShop
                 tbox_totalPages.Text = NumberOfAPages.ToString();
             }
         }
+
+        // Открыть карточку клиента
+        private void openClientCard(object sender, RoutedEventArgs e)
+        {
+            Client? client = clientList.SelectedItem as Client;
+
+            if (client == null)
+            {
+                MessageBox.Show("Не выбран клиент");
+                return;
+            }
+
+            ClientCard card = new ClientCard(UserID, client.IdClient);
+            card.Show();
+            this.Close();
+        }
     }
 }

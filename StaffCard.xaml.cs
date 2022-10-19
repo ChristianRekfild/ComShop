@@ -52,7 +52,7 @@ namespace ComShop
                     DateTime date = DateTime.Parse(staff.DateOfBirth.ToString());
                     cld_dateOfBirth.SelectionMode = CalendarSelectionMode.SingleDate;
                     cld_dateOfBirth.SelectedDate = date;
-                    //cld_dateOfBirth.DisplayDate = date;
+                    cld_dateOfBirth.DisplayDate = date;
 
                     tbox_passport.Text = staff.Passport;
                     tbox_login.Text = staff.Login;
@@ -60,6 +60,26 @@ namespace ComShop
                 }
             }
 
+        }
+
+        private bool CheckDataBeforeSave()
+        {
+            if (String.IsNullOrWhiteSpace(tbox_login.Text))
+                return false;
+            if (String.IsNullOrWhiteSpace(tbox_acessLevel.Text))
+                return false;
+            if (String.IsNullOrWhiteSpace(tbox_familyName.Text))
+                return false;
+            if (String.IsNullOrWhiteSpace(tbox_name.Text))
+                return false;
+            if (String.IsNullOrWhiteSpace(tbox_patronymic.Text))
+                return false;
+            if (String.IsNullOrWhiteSpace(tbox_passport.Text))
+                return false;
+            if (String.IsNullOrWhiteSpace(tbox_acessLevel.Text))
+                return false;
+
+            return true;
         }
 
         private void SetSettingByAcessLevel(int UserID)
@@ -90,10 +110,6 @@ namespace ComShop
                     tbox_acessLevel.IsReadOnly = true;
                 }
 
-                if (EmployeeIdToOpen != 0)
-                {
-                    tbox_password.Visibility = Visibility.Collapsed;
-                }
             }
 
         }
@@ -102,6 +118,12 @@ namespace ComShop
         // Теперь у меня пропадал cproj файл, и я громко ругался, опять восстанавливая проект...
         private void btn_ClickToSave(object sender, RoutedEventArgs e)
         {
+            if (!CheckDataBeforeSave())
+            {
+                MessageBox.Show("Проверьте правильность заполнения данных!");
+                return;
+            }
+
             // Редактирование старого
             if (EmployeeIdToOpen != 0) {
                 using (ComShopContext comShop = new ComShopContext())
@@ -121,6 +143,13 @@ namespace ComShop
                     staff.Passport = tbox_passport.Text;
                     staff.Login = tbox_login.Text;
                     staff.AcessLevel = int.Parse(tbox_acessLevel.Text);
+
+                    if (!String.IsNullOrWhiteSpace(tbox_password.Text))
+                    {
+                        CryptoHelper helper = new CryptoHelper();
+                        string crHash = helper.ComputeSha256Hash(tbox_password.Text);
+                        staff.Password = crHash;
+                    }
 
                     comShop.SaveChanges();
 

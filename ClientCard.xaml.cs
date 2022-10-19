@@ -18,17 +18,36 @@ namespace ComShop
     /// <summary>
     /// Логика взаимодействия для AddClient.xaml
     /// </summary>
-    public partial class AddClient : Window
+    public partial class ClientCard : Window
     {
         private int UserID;
-        public AddClient(int userID)
+        private int ClientID;
+        public ClientCard(int userID, int clientID)
         {
             UserID = userID;
+            ClientID = clientID;
             InitializeComponent();
+            GetData();
             SetSettingByAcessLevel();
         }
 
+        private void GetData()
+        {
+            using (ComShopContext comShop = new ComShopContext())
+            {
+                var client = comShop.Clients.Find(ClientID);
 
+                tbox_name.Text = client.Name;
+                tbox_familyName.Text = client.FamilyName;
+                tbox_patronymic.Text = client.Patronymic;
+                DateTime date = DateTime.Parse(client.DateOfBirth.ToString());
+                cld_dateOfBirth.SelectionMode = CalendarSelectionMode.SingleDate;
+                cld_dateOfBirth.SelectedDate = date;
+                cld_dateOfBirth.DisplayDate = date;
+                tbox_passport.Text = client.Passport;
+
+            }
+        }
 
         private void SetSettingByAcessLevel()
         {
@@ -36,7 +55,7 @@ namespace ComShop
             {
                 var user = comShop.staff.Find(UserID);
 
-                if (user.AcessLevel < 4)
+                if (user.AcessLevel < 1)
                     btn_saveData.Visibility = Visibility.Collapsed;
             }
 
@@ -45,12 +64,12 @@ namespace ComShop
         // Проверка данных перед сохранением
         private bool CheckData()
         {
-            if (String.IsNullOrEmpty(tbox_familyName.Text)) return false;
-            if (String.IsNullOrEmpty(tbox_name.Text)) return false;
+            if (String.IsNullOrWhiteSpace(tbox_familyName.Text)) return false;
+            if (String.IsNullOrWhiteSpace(tbox_name.Text)) return false;
 
-            if (cld_dateOfDirth.SelectedDate == null)
+            if (cld_dateOfBirth.SelectedDate == null)
                 return false;
-            if (String.IsNullOrEmpty(tbox_passport.Text)) return false;
+            if (String.IsNullOrWhiteSpace(tbox_passport.Text)) return false;
 
 
             return true;
@@ -67,23 +86,21 @@ namespace ComShop
 
             using (ComShopContext comShop = new ComShopContext())
             {
-                Client client = new Client
-                {
-                    FamilyName = tbox_familyName.Text,
-                    Name = tbox_name.Text,
-                    Patronymic = tbox_patronymic.Text,
-                    //DateOfBirth = DateOnly.Parse(tbox_dateOfBirth.Text),
-                    DateOfBirth = new DateOnly(cld_dateOfDirth.SelectedDate.Value.Year,
-                                                cld_dateOfDirth.SelectedDate.Value.Month,
-                                                cld_dateOfDirth.SelectedDate.Value.Day
-                                                ),
-                    Passport = tbox_passport.Text
-                };
+                var client = comShop.Clients.Find(ClientID);
 
-                comShop.Clients.Add(client);
+                client.Name = tbox_name.Text;
+                client.FamilyName = tbox_familyName.Text;
+                client.Patronymic = tbox_patronymic.Text;
+                client.Passport = tbox_passport.Text;
+                DateOnly dateOnly = new DateOnly(
+                            cld_dateOfBirth.SelectedDate.Value.Year,
+                            cld_dateOfBirth.SelectedDate.Value.Month,
+                            cld_dateOfBirth.SelectedDate.Value.Day
+                            );
+                client.DateOfBirth = dateOnly;
+
                 comShop.SaveChanges();
-
-                MessageBox.Show("Клиент успешно добавлен");
+                MessageBox.Show("Клиент успешно изменен");
 
                 AfterLogin after = new AfterLogin(UserID);
                 after.Show();
@@ -104,9 +121,5 @@ namespace ComShop
             SaveDataOnDB();
         }
 
-        private void tbox_patronymic_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
     }
 }

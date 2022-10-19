@@ -11,7 +11,7 @@
         Title="Сотрудник" Height="720" Width="1280">
     <Grid>
         <Label Content="ID" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="60"/>
-        <TextBlock Name="tbox_staffID" HorizontalAlignment="Left" Margin="75,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="60"/>
+        <TextBlock Name="tbox_staffID" HorizontalAlignment="Left" Margin="75,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
         <Label Content="Фамилия" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top"/>
         <Label Content="Имя" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top" Width="60"/>
         <Label Content="Отчество" HorizontalAlignment="Left" Margin="10,108,0,0" VerticalAlignment="Top"/>

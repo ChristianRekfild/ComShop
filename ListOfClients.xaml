@@ -30,7 +30,7 @@
             </ListView.View>
         </ListView>
         <Button Content="Главное меню" HorizontalAlignment="Left" Margin="10,635,0,24"  Height="45" Width="300" Click="goToMainMenu"/>
-        <Button x:Name="btn_addClient" Content="Добавить клиента" HorizontalAlignment="Left" Margin="480,635,0,24" Height="45" Width="300"  Click="addClient"/>
+        <Button x:Name="btn_addClient" Content="Добавить клиента" HorizontalAlignment="Left" Margin="327,643,0,32" Height="45" Width="300"  Click="addClient"/>
         <Button x:Name="btn_addClient_Copy" Content="Выбрать клиента" HorizontalAlignment="Left" Margin="970,635,0,24" Height="45" Width="300"  Click="selectClient"/>
         <TextBox x:Name="tbox_passport" HorizontalAlignment="Left" Margin="1101,572,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Height="23"/>
         <TextBox x:Name="tbox_patronomic" HorizontalAlignment="Left" Margin="667,572,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="222" Height="23"/>
@@ -41,5 +41,6 @@
         <Label Content="Имя" HorizontalAlignment="Left" Margin="378,546,0,0" VerticalAlignment="Top" Width="121"/>
         <Label Content="Отчество" HorizontalAlignment="Left" Margin="667,546,0,0" VerticalAlignment="Top" Width="121"/>
         <Label Content="Паспорт" HorizontalAlignment="Left" Margin="1101,546,0,0" VerticalAlignment="Top" Width="121"/>
+        <Button x:Name="btn_openClientCard" Content="Открыть карточку" HorizontalAlignment="Left" Margin="665,643,0,32" Height="45" Width="300"  Click="openClientCard"/>
     </Grid>
 </Window>

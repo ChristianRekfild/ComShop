@@ -26,4 +26,17 @@
     <Folder Include="client\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="ClientCard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="ClientCard.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
 </Project>
