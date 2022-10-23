@@ -102,6 +102,7 @@ namespace ComShop
                     lab_login.Visibility = Visibility.Hidden;
                     btn_save.Visibility = Visibility.Hidden;
                     lab_password.Visibility = Visibility.Hidden;
+                    tbox_password.Visibility = Visibility.Hidden;
 
                     // На остальные поля нужно ставить органичение - только для чтения. Иначе наворотят дел
                     tbox_name.IsReadOnly = true;

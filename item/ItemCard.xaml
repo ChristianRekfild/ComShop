@@ -28,8 +28,8 @@
         <TextBox x:Name="tboxSerialNo" HorizontalAlignment="Left" Margin="105,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="В ремонте" HorizontalAlignment="Left" Margin="290,221,0,0" VerticalAlignment="Top" Width="125"/>
         <Label x:Name="lab_repairMaster" Content="" HorizontalAlignment="Left" Margin="290,251,0,0" VerticalAlignment="Top" Width="125"/>
-        <TextBox x:Name="tbox_repairMaster" HorizontalAlignment="Left" Margin="420,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Height="54"/>
-        <CheckBox x:Name="chboxUnderRepair" Content="CheckBox" HorizontalAlignment="Left" Margin="415,227,0,0" VerticalAlignment="Top" Width="17" Checked="chboxUnderRepair_Checked"/>
+        <TextBox x:Name="tbox_repairMaster" HorizontalAlignment="Left" Margin="448,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" Height="54"/>
+        <CheckBox x:Name="chboxUnderRepair" Content="CheckBox" HorizontalAlignment="Left" Margin="442,227,0,0" VerticalAlignment="Top" Width="18" Checked="chboxUnderRepair_Checked"/>
         <Button Content="Главное меню" HorizontalAlignment="Left" Height="45" Width="250" Margin="10,649,0,0" VerticalAlignment="Top" Click="Btn_MainMenu"/>
         <Button x:Name="btn_sellItem" Content="Продать" HorizontalAlignment="Left" Height="45" Width="250" Margin="1020,649,0,0" VerticalAlignment="Top" Click="sellItem"/>
         <Button x:Name="btn_repair" Content="Отправить на ремонт" HorizontalAlignment="Left" Height="45" Width="250" Margin="265,649,0,0" VerticalAlignment="Top" Click="sendForRepair"/>

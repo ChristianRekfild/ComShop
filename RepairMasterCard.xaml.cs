@@ -58,6 +58,7 @@ namespace ComShop
                     tbox_passport.Text = master.Passport;
                     DateTime date = DateTime.Parse(master.DateOfBirth.ToString());
                     cld_dateOfDirth.SelectedDate = date;
+                    cld_dateOfDirth.DisplayDate = date;
                 }
             }
         }
