@@ -11,7 +11,7 @@
         Title="Главное меню" Height="720" Width="1280">
     <Grid>
         <Grid HorizontalAlignment="Left" Height="684" Margin="0,4,0,0" VerticalAlignment="Top" Width="293">
-            <Button Content="Купить товар" HorizontalAlignment="Center" Margin="0,37,0,0" VerticalAlignment="Top" Width="273" Click="buyItem"/>
+            <Button x:Name="btn_buyItem" Content="Купить товар" HorizontalAlignment="Center" Margin="0,37,0,0" VerticalAlignment="Top" Width="273" Click="buyItem"/>
             <Button Content="Сотрудники" HorizontalAlignment="Center" Margin="0,62,0,0" VerticalAlignment="Top" Width="273" Click="btn_OpenStaffList"/>
             <Button Content="Отчёты" HorizontalAlignment="Center" Margin="0,87,0,0" VerticalAlignment="Top" Width="273" Click="openReport"/>
         </Grid>

@@ -1,4 +1,5 @@
-﻿using Npgsql;
+﻿using ComShop.Model;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,8 +24,21 @@ namespace ComShop
         int UserID;
         public AfterLogin(int staffId)
         {
-            InitializeComponent();
             UserID = staffId;
+            InitializeComponent();
+            SetSettingsByAcessLevel();
+            
+        }
+
+        private void SetSettingsByAcessLevel()
+        {
+            using (ComShopContext context = new ComShopContext())
+            {
+                var user = context.staff.Find(UserID);
+
+                if (user.AcessLevel < 1)
+                    btn_buyItem.IsEnabled = false;
+            }
         }
 
         // Найти товар
